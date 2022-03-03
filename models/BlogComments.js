@@ -11,4 +11,4 @@ const BlogCommentsSchema = new mongoose.Schema({
   },
 });
 
-module.exports = Blogs = mongoose.model('blogs', BlogCommentsSchema);
+module.exports = Blogs = mongoose.model('blogcomments', BlogCommentsSchema);

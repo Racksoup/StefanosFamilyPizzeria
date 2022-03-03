@@ -9,6 +9,10 @@ const MenuItemsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  category: {
+    type: String,
+    required: true,
+  },
   price: {
     type: Number,
     required: true,
@@ -19,4 +23,4 @@ const MenuItemsSchema = new mongoose.Schema({
   },
 });
 
-module.exports = MenuItems = mongoose.model('blogs', MenuItemsSchema);
+module.exports = MenuItems = mongoose.model('menuitems', MenuItemsSchema);
