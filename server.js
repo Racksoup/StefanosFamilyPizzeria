@@ -10,6 +10,7 @@ app.use(express.json({ extend: false }));
 
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/blogs', require('./routes/api/blogs'));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));

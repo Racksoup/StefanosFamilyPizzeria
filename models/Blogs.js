@@ -25,6 +25,9 @@ const BlogsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  favorite: {
+    type: Boolean,
+  },
 });
 
 module.exports = Blogs = mongoose.model('blogs', BlogsSchema);
