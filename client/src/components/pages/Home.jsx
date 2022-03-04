@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../Header.jsx';
 import FirstSection from '../FirstSection.jsx';
 import TrimBorderSectionBG from '../TrimBorderSectionBG.jsx';
+import ItemDisplay from '../ItemDisplay.jsx';
 import SectionTitle from '../SectionTitle.jsx';
 import '../../styles/trimBorderSectionBG.css';
 import '../../styles/home.css';
 import sectionImg from '../../images/PizzaBackground.jpg';
 import section2Img1 from '../../images/HalfAPizzaCut.png';
 import section2Img2 from '../../images/TomatoesNoShadow.png';
+import section3Img from '../../images/Pizza3.jpg';
+import menuItemImg from '../../images/TopDownPizza2.png';
+import { getBestSellers } from '../../actions/bestSellers';
+
+import { connect } from 'react-redux';
 
 const Section2 = () => {
   return (
     <div className='trimBorderSection' style={{ height: '550px' }}>
-      <SectionTitle title='Our Story' />
+      <SectionTitle title='Our Story' textColor='black' />
       <div className='descBox'>
         <div className='descText XSmallBlack'>
           Tortor dignissim convallis aenean et tortor at risus viverra adipiscing. Malesuada fames
@@ -54,7 +60,30 @@ const Section2Images = () => {
   );
 };
 
-const Home = () => {
+const Section3 = (props) => {
+  const bestSellers = props.bestSellers;
+  return (
+    <div className='section3' style={{ backgroundImage: 'url(' + section3Img + ')' }}>
+      <SectionTitle title='Best Sellers' textColor='white' />
+      <div className='bestSellersGrid'>
+        {bestSellers &&
+          bestSellers.map((item) => {
+            return (
+              <div className='itemDisplayWithButton'>
+                <ItemDisplay title={item.title} price={item.price} srcImg={item.image_filename} />
+                <div className='orderButton transparentBGHover'>Order Now</div>
+              </div>
+            );
+          })}
+      </div>
+    </div>
+  );
+};
+
+const Home = ({ bestSellers, getBestSellers }) => {
+  useEffect(() => {
+    getBestSellers();
+  }, []);
   return (
     <div>
       <Header />
@@ -67,9 +96,25 @@ const Home = () => {
       <TrimBorderSectionBG sectionHeight='550px'></TrimBorderSectionBG>
       <Section2Images />
       <Section2 />
-      <div style={{ height: '200px', backgroundColor: 'red' }}></div>
+      <Section3 bestSellers={bestSellers} />
+      <TrimBorderSectionBG sectionHeight='1000px'></TrimBorderSectionBG>
+      <div className='section4'>
+        <SectionTitle title='Our Menu' textColor='black' />
+        <div className='menuLinks'>
+          <div className='SmallBlack'>ALL</div>
+          <div className='SmallBlack'>PIZZA</div>
+          <div className='SmallBlack'>PASTA</div>
+          <div className='SmallBlack'>SALADS</div>
+          <div className='SmallBlack'>DESERTS</div>
+        </div>
+        <div className='menuBarRed' />
+      </div>
     </div>
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => ({
+  bestSellers: state.bestSellers.bestSellers,
+});
+
+export default connect(mapStateToProps, { getBestSellers })(Home);

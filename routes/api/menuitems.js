@@ -159,7 +159,7 @@ router.get('/category/:category', async (req, res) => {
 // @access  Public
 router.get('/best-seller', async (req, res) => {
   try {
-    const items = await MenuItems.find({ bestSeller: true });
+    const items = await MenuItems.find({ bestSeller: true }).limit(8);
     res.json(items);
   } catch (err) {
     console.error(err.message);

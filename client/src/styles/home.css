@@ -29,3 +29,65 @@
   width: 40%;
   height: 100%;
 }
+
+.section3 {
+  height: 1000px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: multiply;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bestSellersGrid {
+  height: 70%;
+  width: 1200px;
+  margin: 40px 0px 0px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.itemDisplayWithButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.orderButton {
+  width: 120px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section4 {
+  width: 100%;
+  height: 1000px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menuLinks {
+  width: 600px;
+  height: 35px;
+  margin: 70px 0px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuLinkSelected {
+}
+
+.menuBarRed {
+  width: 70%;
+  height: 4px;
+  background-color: red;
+}

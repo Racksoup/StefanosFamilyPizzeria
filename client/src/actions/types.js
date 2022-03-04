@@ -1,0 +1,1 @@
+export const GOT_BEST_SELLERS = 'GOT_BEST_SELLERS';
