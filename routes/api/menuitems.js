@@ -59,12 +59,13 @@ const upload = multer({ storage });
 // @desc    Post menuitem
 // @access  Private
 router.post('/', [auth, upload.single('file')], async (req, res) => {
-  const { title, category, text, price } = req.body;
+  const { title, category, text, price, bestSeller } = req.body;
   const postItem = {
     title,
     category,
     text,
     price,
+    bestSeller,
     image_filename: req.file.filename,
   };
 
@@ -82,12 +83,13 @@ router.post('/', [auth, upload.single('file')], async (req, res) => {
 // @desc    Update Blog
 // @access  Private
 router.put('/:_id', [auth, upload.single('file')], async (req, res) => {
-  const { title, category, text, price } = req.body;
+  const { title, category, text, price, bestSeller } = req.body;
   const postItem = {
     title,
     category,
     text,
     price,
+    bestSeller,
     image_filename: req.file.filename,
   };
 
@@ -145,6 +147,19 @@ router.get('/', async (req, res) => {
 router.get('/category/:category', async (req, res) => {
   try {
     const items = await MenuItems.find({ category: req.params.category });
+    res.json(items);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   GET api/menuitems/best-seller
+// @desc    Get Menu-Items if best-seller
+// @access  Public
+router.get('/best-seller', async (req, res) => {
+  try {
+    const items = await MenuItems.find({ bestSeller: true });
     res.json(items);
   } catch (err) {
     console.error(err.message);

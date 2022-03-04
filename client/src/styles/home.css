@@ -1,0 +1,31 @@
+.section2Images {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 80px 0px 0px 0px;
+  position: absolute;
+  z-index: 1;
+}
+
+.section2Image1 {
+  height: 180px;
+}
+
+.section2Image2 {
+  height: 220px;
+  margin: 0px -50px 0px 0px;
+}
+
+.descBox {
+  margin: 50px 0px 0px 0px;
+  width: 1200px;
+  height: 180px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.descText {
+  width: 40%;
+  height: 100%;
+}

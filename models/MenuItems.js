@@ -17,6 +17,9 @@ const MenuItemsSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  bestSeller: {
+    type: Boolean,
+  },
   image_filename: {
     type: String,
     required: true,

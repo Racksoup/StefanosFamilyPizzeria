@@ -1,0 +1,12 @@
+.sectionTitleBox {
+  margin: 0px 0px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionTitleImg {
+  height: 50px;
+  width: 50px;
+  margin: 85px 0px 10px 0px;
+}
