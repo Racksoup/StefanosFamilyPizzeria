@@ -1,0 +1,22 @@
+.firstSection {
+  height: 700px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.firstSectionHome {
+  height: 1080px;
+}
+
+.firstSectionText {
+  margin: 300px 0px 0px 0px;
+}
+
+.firstSectionTitle {
+  margin: 20px 0px 0px 0px;
+}
