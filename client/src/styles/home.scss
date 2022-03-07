@@ -121,11 +121,3 @@
   height: 4px;
   background-color: red;
 }
-
-.menuGrid {
-  min-height: 300px;
-  width: 70%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-}

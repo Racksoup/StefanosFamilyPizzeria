@@ -232,3 +232,11 @@ img {
     height: 10px;
   }
 }
+
+.menuGrid {
+  width: 850px;
+  padding: 35px 0px 35px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}

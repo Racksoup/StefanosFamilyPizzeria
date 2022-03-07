@@ -2,7 +2,27 @@
 
 .servicesSection2 {
   @include trimBorder;
-  height: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.servicesSection2Title {
+  margin: 40px 0px 0px 0px;
+}
+
+.servicesSection2TopDisplay {
+  margin: 20px 0px 40px 0px;
+  width: 1050px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.servicesSection2BottomDisplay {
+  background-color: rgb(220, 248, 240);
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .servicesSection3 {
@@ -20,5 +40,21 @@
 
 .servicesSection4 {
   @include trimBorder;
-  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.servicesSection4TopDisplay {
+  margin: 30px 0px 0px 0px;
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.servicesSection4Bar {
+  margin: 50px 0px 15px 0px;
+  width: 850px;
+  height: 1px;
+  background-color: rgba(66, 66, 66, 0.7);
 }

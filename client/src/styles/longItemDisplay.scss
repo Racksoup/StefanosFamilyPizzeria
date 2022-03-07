@@ -1,0 +1,23 @@
+.longItemDisplay {
+  width: 350px;
+  height: 120px;
+  display: grid;
+  grid-template-columns: 3fr 5fr;
+  grid-template-rows: 1fr 1fr 4fr;
+}
+
+.longItemDisplayImage {
+  grid-area: 1 / 1 / 4 / 2;
+}
+.longItemDisplayTitle {
+  margin: 0px 0px 0px 10px;
+  grid-area: 1 / 2 / 2 / 3;
+}
+.longItemDisplayPrice {
+  margin: 0px 0px 0px 10px;
+  grid-area: 2 / 2 / 3 / 3;
+}
+.longItemDisplayText {
+  margin: 0px 0px 0px 10px;
+  grid-area: 3 / 2 / 4 / 3;
+}

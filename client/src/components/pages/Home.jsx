@@ -76,7 +76,12 @@ const Section3 = (props) => {
           bestSellers.map((item) => {
             return (
               <div className='itemDisplayWithButton'>
-                <ItemDisplay title={item.title} price={item.price} srcImg={item.image_filename} />
+                <ItemDisplay
+                  title={item.title}
+                  price={item.price}
+                  srcImg={item.image_filename}
+                  textColor='white'
+                />
                 <div className='orderButton transparentBGHover'>Order Now</div>
               </div>
             );
@@ -190,28 +195,56 @@ const Home = ({
         {tabSel === 1 ? (
           <div className='menuGrid'>
             {pizzaMenuItems.map((item) => {
-              return <MenuItem />;
+              return (
+                <MenuItem
+                  itemImage={item.image_filename}
+                  itemTitle={item.title}
+                  itemPrice={item.price}
+                  itemText={item.text}
+                />
+              );
             })}
           </div>
         ) : null}
         {tabSel === 2 ? (
           <div className='menuGrid'>
             {pastaMenuItems.map((item) => {
-              return <MenuItem />;
+              return (
+                <MenuItem
+                  itemImage={item.image_filename}
+                  itemTitle={item.title}
+                  itemPrice={item.price}
+                  itemText={item.text}
+                />
+              );
             })}
           </div>
         ) : null}
         {tabSel === 3 ? (
           <div className='menuGrid'>
             {saladMenuItems.map((item) => {
-              return <MenuItem />;
+              return (
+                <MenuItem
+                  itemImage={item.image_filename}
+                  itemTitle={item.title}
+                  itemPrice={item.price}
+                  itemText={item.text}
+                />
+              );
             })}
           </div>
         ) : null}
         {tabSel === 4 ? (
           <div className='menuGrid'>
             {desertMenuItems.map((item) => {
-              return <MenuItem />;
+              return (
+                <MenuItem
+                  itemImage={item.image_filename}
+                  itemTitle={item.title}
+                  itemPrice={item.price}
+                  itemText={item.text}
+                />
+              );
             })}
           </div>
         ) : null}
