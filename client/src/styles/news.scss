@@ -1,0 +1,20 @@
+@import './App.scss';
+
+.blogSection {
+  @include trimBorder;
+  display: flex;
+  justify-content: center;
+}
+
+.blogs {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+}
+
+.blogsSideBar {
+  margin: 0px 0px 0px 20px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
