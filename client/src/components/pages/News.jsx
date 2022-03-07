@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../Header.jsx';
 import FirstSection from '../FirstSection.jsx';
+import Footer from '../Footer.jsx';
 import sectionImg from '../../images/PizzaBG.jpg';
 
 const News = () => {
@@ -8,6 +9,7 @@ const News = () => {
     <div>
       <Header />
       <FirstSection title='Our Blog' text='THE BEST IN TOWN' sectionImg={sectionImg} />
+      <Footer />
     </div>
   );
 };

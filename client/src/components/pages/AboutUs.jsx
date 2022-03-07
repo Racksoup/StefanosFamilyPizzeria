@@ -18,19 +18,19 @@ const AboutUs = () => {
     <div>
       <Header />
       <FirstSection title='About Our Restaurant' text='THE BEST IN TOWN' sectionImg={sectionImg} />
-      <div className='section2 jagged-border'>
-        <div className='section2Content'>
-          <div className='section2ImageFlex'>
-            <img className='section2Image' src={SteamyPizza} />
-            <img className='section2Image' src={SteamyPizza} />
+      <div className='about-usSection2 jagged-border'>
+        <div className='about-usSection2Content'>
+          <div className='about-usSection2ImageFlex'>
+            <img className='about-usSection2Image' src={SteamyPizza} />
+            <img className='about-usSection2Image' src={SteamyPizza} />
           </div>
           <div className='XLargeBlackHandwriting'>We Are Stefano's</div>
-          <div className='section2TopText SmallBlack'>
+          <div className='about-usSection2TopText SmallBlack'>
             Commodo ullamcorper a lacus vestibulum sed arcu non. Suspendisse potenti nullam ac
             tortor vitae purus faucibus ornare. Etiam non quam lacus suspendisse.
           </div>
-          <div className='section2DescFlex'>
-            <div className='section2Desc XSmallBlack'>
+          <div className='about-usSection2DescFlex'>
+            <div className='about-usSection2Desc XSmallBlack'>
               Amet massa vitae tortor condimentum lacinia. Justo nec ultrices dui sapien eget mi
               proin sed libero. Maecenas pharetra convallis posuere morbi leo urna molestie at.
               Rhoncus dolor purus non enim praesent. Nunc eget lorem dolor sed viverra. Pharetra vel
@@ -44,7 +44,7 @@ const AboutUs = () => {
               at in tellus integer. Aliquam sem et tortor consequat id porta nibh venenatis cras.
               Dui accumsan sit amet nulla facilisi morbi tempus.
             </div>
-            <div className='section2Desc XSmallBlack'>
+            <div className='about-usSection2Desc XSmallBlack'>
               Amet massa vitae tortor condimentum lacinia. Justo nec ultrices dui sapien eget mi
               proin sed libero. Maecenas pharetra convallis posuere morbi leo urna molestie at.
               Rhoncus dolor purus non enim praesent. Nunc eget lorem dolor sed viverra. Pharetra vel
@@ -59,13 +59,13 @@ const AboutUs = () => {
               Dui accumsan sit amet nulla facilisi morbi tempus.
             </div>
           </div>
-          <div className='section2ButtonFlex'>
+          <div className='about-usSection2ButtonFlex'>
             <ItalianButton text='SEE TODAYS MENU' />
             <ItalianButton text='ORDER NOW' />
           </div>
         </div>
       </div>
-      <div className='section3'>
+      <div className='about-usSection3'>
         <SectionTitle title='What Clients Say' textColor='white' />
         <div className='reviewFlex'>
           <ReviewComp title='Apple Apple' text={loremIpsum} srcImg={revImg} name='cucumber' />
@@ -73,8 +73,8 @@ const AboutUs = () => {
           <ReviewComp title='Apple Apple' text={loremIpsum} srcImg={revImg} name='cucumber' />
         </div>
       </div>
-      <div className='section4 jagged-border'>
-        <img className='section4Img' src={SoldPerDay} alt='sold-per-day' />
+      <div className='about-usSection4 jagged-border'>
+        <img className='about-usSection4Img' src={SoldPerDay} alt='sold-per-day' />
       </div>
       <Footer />
     </div>

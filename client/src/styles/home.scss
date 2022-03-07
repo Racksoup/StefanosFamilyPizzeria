@@ -1,4 +1,15 @@
-.section2Images {
+@import './App.scss';
+
+.homeSection2 {
+  @include trimBorder;
+  background-color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homeSection2Images {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -7,11 +18,11 @@
   z-index: 1;
 }
 
-.section2Image1 {
+.homeSection2Image1 {
   height: 180px;
 }
 
-.section2Image2 {
+.homeSection2Image2 {
   height: 220px;
   margin: 0px -50px 0px 0px;
 }
@@ -30,7 +41,7 @@
   height: 100%;
 }
 
-.section3 {
+.homeSection3 {
   height: 1000px;
   width: 100%;
   background-position: center;
@@ -66,7 +77,8 @@
   justify-content: center;
 }
 
-.section4 {
+.homeSection4 {
+  @include trimBorder;
   width: 100%;
   height: 800px;
   position: relative;

@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../Header.jsx';
 import FirstSection from '../FirstSection.jsx';
-import TrimBorderSectionBG from '../TrimBorderSectionBG.jsx';
 import ItemDisplay from '../ItemDisplay.jsx';
 import SectionTitle from '../SectionTitle.jsx';
 import MenuItem from '../menuItem.jsx';
 import Footer from '../Footer.jsx';
-import '../../styles/trimBorderSectionBG.css';
-import '../../styles/home.css';
+import '../../styles/home.scss';
 import sectionImg from '../../images/PizzaBackground.jpg';
 import section2Img1 from '../../images/HalfAPizzaCut.png';
 import section2Img2 from '../../images/TomatoesNoShadow.png';
@@ -25,7 +23,7 @@ import { connect } from 'react-redux';
 
 const Section2 = () => {
   return (
-    <div className='trimBorderSection' style={{ height: '550px' }}>
+    <div className='homeSection2 jagged-border' style={{ height: '550px' }}>
       <SectionTitle title='Our Story' textColor='black' />
       <div className='descBox'>
         <div className='descText XSmallBlack'>
@@ -57,11 +55,11 @@ const Section2 = () => {
 
 const Section2Images = () => {
   return (
-    <div className='section2Images'>
-      <div className='section2Image1'>
+    <div className='homeSection2Images'>
+      <div className='homeSection2Image1'>
         <img src={section2Img1} />
       </div>
-      <div className='section2Image2'>
+      <div className='homeSection2Image2'>
         <img src={section2Img2} />
       </div>
     </div>
@@ -71,7 +69,7 @@ const Section2Images = () => {
 const Section3 = (props) => {
   const bestSellers = props.bestSellers;
   return (
-    <div className='section3' style={{ backgroundImage: 'url(' + section3Img + ')' }}>
+    <div className='homeSection3' style={{ backgroundImage: 'url(' + section3Img + ')' }}>
       <SectionTitle title='Best Sellers' textColor='white' />
       <div className='bestSellersGrid'>
         {bestSellers &&
@@ -87,6 +85,7 @@ const Section3 = (props) => {
     </div>
   );
 };
+
 const Home = ({
   bestSellers,
   allMenuItems,
@@ -121,12 +120,10 @@ const Home = ({
         sectionImg={sectionImg}
         sectionSize='1000px'
       />
-      <TrimBorderSectionBG sectionHeight='550px'></TrimBorderSectionBG>
       <Section2Images />
       <Section2 />
       <Section3 bestSellers={bestSellers} />
-      <TrimBorderSectionBG sectionHeight='800px'></TrimBorderSectionBG>
-      <div className='section4'>
+      <div className='homeSection4 jagged-border'>
         <SectionTitle title='Our Menu' textColor='black' />
         <div className='menuLinks'>
           {tabSel === 0 ? (

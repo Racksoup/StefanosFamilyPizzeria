@@ -1,0 +1,24 @@
+@import './App.scss';
+
+.servicesSection2 {
+  @include trimBorder;
+  height: 1000px;
+}
+
+.servicesSection3 {
+  height: 400px;
+  background-image: url('../images/PizzaSliced.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: multiply;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.servicesSection4 {
+  @include trimBorder;
+  height: 700px;
+}

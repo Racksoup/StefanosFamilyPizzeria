@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Header from '../Header.jsx';
 import Footer from '../Footer.jsx';
 import FirstSection from '../FirstSection.jsx';
-import TrimBorderSectionBG from '../TrimBorderSectionBG.jsx';
 import SectionTitle from '../SectionTitle.jsx';
 import ItalianButton from '../italianButton.jsx';
 import sectionImg from '../../images/PizzaBG2.jpg';
@@ -23,8 +22,7 @@ const Contact = () => {
     <div>
       <Header />
       <FirstSection title='Contact' text='SAY HELLO' sectionImg={sectionImg} />
-      <TrimBorderSectionBG sectionHeight='870px'></TrimBorderSectionBG>
-      <div className='contactus'>
+      <div className='contactus jagged-border'>
         <SectionTitle title='Say Hello' textColor='black' />
         <div className='SmallBlack contacth2'>Say Hello, Send us a Message</div>
         <div className='XSmallBlack contactText'>
