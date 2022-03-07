@@ -1,0 +1,23 @@
+.reviewComp {
+  height: 500px;
+  color: white;
+  width: 350px;
+}
+
+.reviewCompImg {
+  width: 90px;
+  height: 90px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.reviewCompText {
+  margin: 10px 0px 10px 0px;
+  overflow: hidden;
+  height: 130px;
+}
+
+.reviewCompName {
+  display: flex;
+  flex-direction: row;
+}

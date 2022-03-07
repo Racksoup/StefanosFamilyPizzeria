@@ -4,7 +4,7 @@ import Contact from './components/pages/Contact.jsx';
 import Services from './components/pages/Services.jsx';
 import News from './components/pages/News.jsx';
 import AboutUs from './components/pages/AboutUs.jsx';
-import './styles/App.css';
+import './styles/App.scss';
 
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';

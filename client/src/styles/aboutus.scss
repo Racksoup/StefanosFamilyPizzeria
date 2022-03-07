@@ -1,0 +1,87 @@
+@import './App.scss';
+
+.section2 {
+  @include trimBorder;
+  height: 855px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section2Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 890px;
+}
+
+.section2ImageFlex {
+  margin: 60px 0px 40px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section2Image {
+  width: 400px;
+  height: 280px;
+  border: solid black 1px;
+  object-fit: cover;
+}
+
+.section2TopText {
+  width: 100%;
+  margin: 25px 0px 25px 0px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.section2DescFlex {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section2Desc {
+  width: 42%;
+  height: 150px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.section2ButtonFlex {
+  margin: 40px 0px 0px 0px;
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section3 {
+  height: 690px;
+  width: 100%;
+  background-image: url('../images/CutPizzaBG.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: multiply;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reviewFlex {
+  margin: 80px 0px 0px 0px;
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section4 {
+  @include trimBorder;
+  height: 400px;
+}
+
+.section4Img {
+  width: 1000px;
+}
