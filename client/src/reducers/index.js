@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import bestSellers from './bestSellers';
+import menuItems from './menuItems';
 
 export default combineReducers({
-  bestSellers,
+  menuItems,
 });

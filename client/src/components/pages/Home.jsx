@@ -1,17 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../Header.jsx';
 import FirstSection from '../FirstSection.jsx';
 import TrimBorderSectionBG from '../TrimBorderSectionBG.jsx';
 import ItemDisplay from '../ItemDisplay.jsx';
 import SectionTitle from '../SectionTitle.jsx';
+import MenuItem from '../menuItem.jsx';
+import Footer from '../Footer.jsx';
 import '../../styles/trimBorderSectionBG.css';
 import '../../styles/home.css';
 import sectionImg from '../../images/PizzaBackground.jpg';
 import section2Img1 from '../../images/HalfAPizzaCut.png';
 import section2Img2 from '../../images/TomatoesNoShadow.png';
 import section3Img from '../../images/Pizza3.jpg';
-import menuItemImg from '../../images/TopDownPizza2.png';
-import { getBestSellers } from '../../actions/bestSellers';
+import {
+  getAllMenuItems,
+  getPizzaMenuItems,
+  getPastaMenuItems,
+  getSaladMenuItems,
+  getDesertMenuItems,
+  getBestSellers,
+} from '../../actions/menuItems.js';
 
 import { connect } from 'react-redux';
 
@@ -79,11 +87,31 @@ const Section3 = (props) => {
     </div>
   );
 };
-
-const Home = ({ bestSellers, getBestSellers }) => {
+const Home = ({
+  bestSellers,
+  allMenuItems,
+  pizzaMenuItems,
+  pastaMenuItems,
+  saladMenuItems,
+  desertMenuItems,
+  getBestSellers,
+  getAllMenuItems,
+  getPizzaMenuItems,
+  getPastaMenuItems,
+  getSaladMenuItems,
+  getDesertMenuItems,
+}) => {
   useEffect(() => {
     getBestSellers();
+    getAllMenuItems();
+    getPizzaMenuItems();
+    getPastaMenuItems();
+    getSaladMenuItems();
+    getDesertMenuItems();
   }, []);
+
+  const [tabSel, setTabSel] = useState(0);
+
   return (
     <div>
       <Header />
@@ -97,24 +125,119 @@ const Home = ({ bestSellers, getBestSellers }) => {
       <Section2Images />
       <Section2 />
       <Section3 bestSellers={bestSellers} />
-      <TrimBorderSectionBG sectionHeight='1000px'></TrimBorderSectionBG>
+      <TrimBorderSectionBG sectionHeight='800px'></TrimBorderSectionBG>
       <div className='section4'>
         <SectionTitle title='Our Menu' textColor='black' />
         <div className='menuLinks'>
-          <div className='SmallBlack'>ALL</div>
-          <div className='SmallBlack'>PIZZA</div>
-          <div className='SmallBlack'>PASTA</div>
-          <div className='SmallBlack'>SALADS</div>
-          <div className='SmallBlack'>DESERTS</div>
+          {tabSel === 0 ? (
+            <div className='menuLinkBoxSelected'>
+              <div className='SmallWhite'>ALL</div>
+            </div>
+          ) : (
+            <button className='menuLinkBox' onClick={() => setTabSel(0)}>
+              <div className='SmallBlack'>ALL</div>
+            </button>
+          )}
+          {tabSel === 1 ? (
+            <div className='menuLinkBoxSelected'>
+              <div className='SmallWhite'>PIZZA</div>
+            </div>
+          ) : (
+            <button className='menuLinkBox' onClick={() => setTabSel(1)}>
+              <div className='SmallBlack'>PIZZA</div>
+            </button>
+          )}
+          {tabSel === 2 ? (
+            <div className='menuLinkBoxSelected'>
+              <div className='SmallWhite'>PASTA</div>
+            </div>
+          ) : (
+            <button className='menuLinkBox' onClick={() => setTabSel(2)}>
+              <div className='SmallBlack'>PASTA</div>
+            </button>
+          )}
+          {tabSel === 3 ? (
+            <div className='menuLinkBoxSelected'>
+              <div className='SmallWhite'>SALADS</div>
+            </div>
+          ) : (
+            <button className='menuLinkBox' onClick={() => setTabSel(3)}>
+              <div className='SmallBlack'>SALADS</div>
+            </button>
+          )}
+          {tabSel === 4 ? (
+            <div className='menuLinkBoxSelected'>
+              <div className='SmallWhite'>DESERTS</div>
+            </div>
+          ) : (
+            <button className='menuLinkBox' onClick={() => setTabSel(4)}>
+              <div className='SmallBlack'>DESERTS</div>
+            </button>
+          )}
         </div>
         <div className='menuBarRed' />
+        {tabSel === 0 ? (
+          <div className='menuGrid'>
+            {allMenuItems.map((item) => {
+              return (
+                <MenuItem
+                  itemImage={item.image_filename}
+                  itemTitle={item.title}
+                  itemPrice={item.price}
+                  itemText={item.text}
+                />
+              );
+            })}
+          </div>
+        ) : null}
+        {tabSel === 1 ? (
+          <div className='menuGrid'>
+            {pizzaMenuItems.map((item) => {
+              return <MenuItem />;
+            })}
+          </div>
+        ) : null}
+        {tabSel === 2 ? (
+          <div className='menuGrid'>
+            {pastaMenuItems.map((item) => {
+              return <MenuItem />;
+            })}
+          </div>
+        ) : null}
+        {tabSel === 3 ? (
+          <div className='menuGrid'>
+            {saladMenuItems.map((item) => {
+              return <MenuItem />;
+            })}
+          </div>
+        ) : null}
+        {tabSel === 4 ? (
+          <div className='menuGrid'>
+            {desertMenuItems.map((item) => {
+              return <MenuItem />;
+            })}
+          </div>
+        ) : null}
       </div>
+      <Footer />
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
-  bestSellers: state.bestSellers.bestSellers,
+  bestSellers: state.menuItems.bestSellers,
+  allMenuItems: state.menuItems.allMenuItems,
+  pizzaMenuItems: state.menuItems.pizzaMenuItems,
+  pastaMenuItems: state.menuItems.pastaMenuItems,
+  saladMenuItems: state.menuItems.saladMenuItems,
+  desertMenuItems: state.menuItems.desertMenuItems,
 });
 
-export default connect(mapStateToProps, { getBestSellers })(Home);
+export default connect(mapStateToProps, {
+  getBestSellers,
+  getAllMenuItems,
+  getPizzaMenuItems,
+  getPastaMenuItems,
+  getSaladMenuItems,
+  getDesertMenuItems,
+})(Home);

@@ -66,7 +66,7 @@ img {
 
 .SmallWhite {
   font-family: 'Open Sans';
-  font-size: 22px;
+  font-size: 20px;
   color: White;
 }
 
@@ -91,7 +91,7 @@ img {
 
 .SmallBlack {
   font-family: 'Open Sans';
-  font-size: 22px;
+  font-size: 20px;
   color: Black;
 }
 
@@ -118,7 +118,7 @@ img {
 
 .SmallRed {
   font-family: 'Open Sans';
-  font-size: 22px;
+  font-size: 20px;
   font-style: italic;
   color: Red;
 }
@@ -157,7 +157,14 @@ img {
 
 .GreenUnderlineText {
   font-family: 'Bahnschrift';
-  font-size: 22px;
+  font-size: 20px;
+  color: green;
+  text-decoration: underline;
+}
+
+.XSmallGreen {
+  font-family: 'Bahnschrift';
+  font-size: 14px;
   color: green;
   text-decoration: underline;
 }
