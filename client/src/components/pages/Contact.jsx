@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../Header.jsx';
 import Footer from '../Footer.jsx';
 import FirstSection from '../FirstSection.jsx';
 import TrimBorderSectionBG from '../TrimBorderSectionBG.jsx';
 import SectionTitle from '../SectionTitle.jsx';
+import ItalianButton from '../italianButton.jsx';
 import sectionImg from '../../images/PizzaBG2.jpg';
-import '../../styles/contact.css';
+import '../../styles/contact.scss';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
   return (
     <div>
       <Header />
       <FirstSection title='Contact' text='SAY HELLO' sectionImg={sectionImg} />
-      <TrimBorderSectionBG sectionHeight='750px'></TrimBorderSectionBG>
+      <TrimBorderSectionBG sectionHeight='870px'></TrimBorderSectionBG>
       <div className='contactus'>
         <SectionTitle title='Say Hello' textColor='black' />
         <div className='SmallBlack contacth2'>Say Hello, Send us a Message</div>
@@ -24,6 +35,39 @@ const Contact = () => {
           metus. Consequat id porta nibh venenatis cras sed felis eget velit. Donec adipiscing
           tristique risus nec. Sit amet consectetur adipiscing elit duis tristique sollicitudin
           nibh. Viverra nibh cras pulvinar mattis nunc sed.
+        </div>
+        <div className='contactForm'>
+          <div className='nameEmailFlex'>
+            <input
+              className='nameInput XSmallBlack'
+              name='name'
+              onChange={(e) => onChange(e)}
+              placeholder='Name'
+              autoComplete='off'
+            />
+            <input
+              className='emailInput XSmallBlack'
+              name='email'
+              onChange={(e) => onChange(e)}
+              placeholder='E-mail'
+              autoComplete='off'
+            />
+          </div>
+          <input
+            className='subject XSmallBlack'
+            name='subject'
+            onChange={(e) => onChange(e)}
+            placeholder='Subject'
+            autoComplete='off'
+          />
+          <textarea
+            className='message XSmallBlack'
+            name='message'
+            onChange={(e) => onChange(e)}
+            placeholder='Message'
+            autoComplete='off'
+          />
+          <ItalianButton text='SEND MESSAGE' />
         </div>
       </div>
       <Footer />
