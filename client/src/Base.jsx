@@ -4,10 +4,10 @@ import Contact from './components/pages/Contact.jsx';
 import Services from './components/pages/Services.jsx';
 import News from './components/pages/News.jsx';
 import AboutUs from './components/pages/AboutUs.jsx';
+import SingleBlog from './components/pages/SingleBlog.jsx';
 import './styles/App.scss';
 
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 const Base = () => {
   return (
@@ -18,6 +18,7 @@ const Base = () => {
         <Route exact path='/services' element={<Services />} />
         <Route exact path='/news' element={<News />} />
         <Route exact path='/about-us' element={<AboutUs />} />
+        <Route exact path='/blog' element={<SingleBlog />} />
       </Routes>
     </BrowserRouter>
   );

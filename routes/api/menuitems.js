@@ -186,7 +186,7 @@ router.get('/:_id', async (req, res) => {
 
 // @route   GET api/menuitems/image/:filename
 // @desc    Get MenuItem Image
-// @access  Private
+// @access  Public
 router.get('/image/:filename', async (req, res) => {
   await gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     // Check if files

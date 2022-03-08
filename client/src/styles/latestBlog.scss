@@ -1,0 +1,31 @@
+.latestBlog {
+  margin: 0px 0px 10px 0px;
+  height: 90px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 3fr 7fr 4fr;
+}
+
+.latestBlogImg {
+  grid-area: 1 / 1 / 4 / 2;
+  object-fit: cover;
+}
+
+.latestBlogCategory {
+  grid-area: 1 / 2 / 2 / 3;
+  overflow: hidden;
+  margin: 0px 0px 0px 10px;
+}
+
+.latestBlogTitle {
+  grid-area: 2 / 2 / 3 / 3;
+  overflow: hidden;
+  margin: 0px 0px 0px 10px;
+}
+
+.latestBlogDate {
+  grid-area: 3 / 2 / 4 / 3;
+  overflow: hidden;
+  margin: 0px 0px 0px 10px;
+}

@@ -1,4 +1,4 @@
-import { GOT_ALL_BLOGS } from '../actions/types';
+import { GOT_ALL_BLOGS, SET_ONE_BLOG } from '../actions/types';
 
 import axios from 'axios';
 
@@ -12,4 +12,11 @@ export const getAllBlogs = () => async (dispatch) => {
   } catch (err) {
     console.log(err);
   }
+};
+
+export const setOneBlog = (blog) => (dispatch) => {
+  dispatch({
+    type: SET_ONE_BLOG,
+    payload: blog,
+  });
 };

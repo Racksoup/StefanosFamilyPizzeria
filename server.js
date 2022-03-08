@@ -12,6 +12,7 @@ app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/blogs', require('./routes/api/blogs'));
 app.use('/api/menuitems', require('./routes/api/menuitems'));
+app.use('/api/saleimages', require('./routes/api/saleimages'));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));

@@ -1,0 +1,77 @@
+@import './App.scss';
+
+.singleBlogBG {
+  background-color: rgba(0, 0, 0, 1);
+  width: 100vw;
+  height: 100vh;
+}
+
+.singleBlog {
+  @include trimBorder;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.singleBlogContainer {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerSpace {
+  height: 120px;
+}
+
+.singleBlogTitle {
+  margin: 30px 0px 0px 0px;
+}
+
+.singleBlogImage {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin: 30px 0px 30px 0px;
+}
+
+.singleBlogText {
+  margin: 0px 0px 30px 0px;
+}
+
+.singleBlogInfoBar {
+  place-self: flex-start;
+  display: flex;
+  height: 35px;
+}
+
+.singleBlogInfoBarFlex {
+  display: flex;
+  border-radius: 8px;
+  background-color: rgb(220, 248, 240);
+  align-items: center;
+  height: 100%;
+}
+
+.singleBlogInfoBarDivider {
+  height: 80%;
+  width: 1px;
+  background-color: black;
+  display: inline-block;
+}
+
+.singleBlogInfoBarItem {
+  display: inline-block;
+  margin: 2px 18px 0px 18px;
+}
+
+.singleBlogText {
+  margin: 18px 0px 1px 0px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.singleBlogDate {
+  align-self: center;
+  margin: 0px 0px 0px 10px;
+}

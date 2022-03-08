@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/firstSection.css';
+import ItalianButton from './italianButton';
 
 const FirstSection = (props) => {
   const title = props.title;
@@ -15,6 +16,7 @@ const FirstSection = (props) => {
       >
         <div className='firstSectionText MediumWhite'>{text}</div>
         <div className='firstSectionTitle XLargeWhiteHandwriting'>{title}</div>
+        <ItalianButton text='SEE TODAYS MENU' />
       </div>
     );
   } else {
