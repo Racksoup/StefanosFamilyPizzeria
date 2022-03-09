@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllBlogs, setOneBlog } from '../../actions/blogs.js';
+import { getAllBlogs, setOneBlog, setSearchedBlogs } from '../../actions/blogs.js';
 import { getSaleImages } from '../../actions/saleImages.js';
 import Header from '../Header.jsx';
 import FirstSection from '../FirstSection.jsx';
@@ -13,7 +13,7 @@ import '../../styles/news.scss';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const News = ({ blogs, saleImages, getAllBlogs, getSaleImages, setOneBlog }) => {
+const News = ({ blogs, saleImages, getAllBlogs, getSaleImages, setOneBlog, setSearchedBlogs }) => {
   const [newestBlogs, setNewestBlogs] = useState([]);
   useEffect(() => {
     getAllBlogs();
@@ -39,13 +39,7 @@ const News = ({ blogs, saleImages, getAllBlogs, getSaleImages, setOneBlog }) => 
                 return (
                   <Link className='linkStyle' to='/blog'>
                     <div onClick={setOneBlog(blog)}>
-                      <BlogItem
-                        image={blog.image_filename}
-                        title={blog.title}
-                        poster={blog.poster}
-                        category={blog.category}
-                        text={blog.text}
-                      />
+                      <BlogItem blog={blog} />
                     </div>
                   </Link>
                 );
@@ -53,7 +47,7 @@ const News = ({ blogs, saleImages, getAllBlogs, getSaleImages, setOneBlog }) => 
             })}
         </div>
         <div className='blogsSideBar'>
-          <input className='blogSearch' />
+          <input className='blogSearch' placeholder='Search Blogs' autoComplete='off' />
           {saleImages[0] && (
             <img
               className='saleImage'
@@ -61,9 +55,9 @@ const News = ({ blogs, saleImages, getAllBlogs, getSaleImages, setOneBlog }) => 
             />
           )}
           <div className='SmallBlack'>Subscribe to our Newsletter</div>
-          <input className='newsLetterInput' />
-          <ItalianButton text='Subscribe' />
-          <div className='SmallBlack'>Latest Posts</div>
+          <input className='subscribeInput' placeholder='Enter your E-mail' autoComplete='off' />
+          <ItalianButton text='Subscribe' width='100%' />
+          <div className='newestBlogsTitle SmallBlack'>Latest Posts</div>
           {blogs &&
             newestBlogs.map((blog) => (
               <Link className='linkStyle' to='/blog'>
@@ -72,6 +66,11 @@ const News = ({ blogs, saleImages, getAllBlogs, getSaleImages, setOneBlog }) => 
                 </div>
               </Link>
             ))}
+          <div className='allBlogsLink ' onClick={setSearchedBlogs(blogs)}>
+            <Link className='linkStyle' to='/blogs'>
+              <div className='SmallWhite'>All Blogs</div>
+            </Link>
+          </div>
           {saleImages[0] && (
             <img
               className='saleImage'
@@ -90,4 +89,9 @@ const mapStateToProps = (state) => ({
   saleImages: state.saleImages.saleImages,
 });
 
-export default connect(mapStateToProps, { getAllBlogs, getSaleImages, setOneBlog })(News);
+export default connect(mapStateToProps, {
+  getAllBlogs,
+  getSaleImages,
+  setOneBlog,
+  setSearchedBlogs,
+})(News);

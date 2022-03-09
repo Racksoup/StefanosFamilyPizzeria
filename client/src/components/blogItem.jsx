@@ -2,11 +2,11 @@ import React from 'react';
 import '../styles/blogItem.scss';
 
 const BlogItem = (props) => {
-  const title = props.title;
-  const text = props.text;
-  const image = props.image;
-  const poster = props.poster;
-  const category = props.category;
+  const title = props.blog.title;
+  const text = props.blog.text;
+  const image = props.blog.image_filename;
+  const poster = props.blog.poster;
+  const category = props.blog.category;
   return (
     <div className='blogItem'>
       <img className='blogImage' src={`api/blogs/image/${image}`} />

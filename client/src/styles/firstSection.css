@@ -1,5 +1,5 @@
 .firstSection {
-  height: 700px;
+  height: 500px;
   width: 100%;
   background-position: center;
   background-size: cover;
@@ -16,7 +16,7 @@
 }
 
 .firstSectionText {
-  margin: 300px 0px 0px 0px;
+  margin: 180px 0px 0px 0px;
 }
 
 .firstSectionTitle {
