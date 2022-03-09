@@ -23,7 +23,7 @@ import { connect } from 'react-redux';
 
 const Section2 = () => {
   return (
-    <div className='homeSection2 jagged-border' style={{ height: '550px' }}>
+    <div className='homeSection2 jagged-border'>
       <SectionTitle title='Our Story' textColor='black' />
       <div className='descBox'>
         <div className='descText XSmallBlack'>

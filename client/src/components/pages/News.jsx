@@ -32,6 +32,7 @@ const News = ({ blogs, saleImages, getAllBlogs, getSaleImages, setOneBlog, setSe
       <Header />
       <FirstSection title='Our Blog' text='THE BEST IN TOWN' sectionImg={sectionImg} />
       <div className='blogSection jagged-border'>
+        <input className='mobileBlogSearch' placeholder='Search Blogs' autoComplete='off' />
         <div className='blogs'>
           {blogs &&
             blogs.map((blog) => {
@@ -66,9 +67,9 @@ const News = ({ blogs, saleImages, getAllBlogs, getSaleImages, setOneBlog, setSe
                 </div>
               </Link>
             ))}
-          <div className='allBlogsLink ' onClick={setSearchedBlogs(blogs)}>
+          <div className='allBlogsLink' onClick={setSearchedBlogs(blogs)}>
             <Link className='linkStyle' to='/blogs'>
-              <div className='SmallWhite'>All Blogs</div>
+              <ItalianButton text='All Blogs' width='100%' />
             </Link>
           </div>
           {saleImages[0] && (

@@ -2,6 +2,7 @@ import React from 'react';
 import { setOneBlog } from '../../actions/blogs';
 import '../../styles/allBlogs.scss';
 import Header from '../Header';
+import Footer from '../Footer';
 import BlogItem from '../blogItem';
 
 import { connect } from 'react-redux';
@@ -26,6 +27,7 @@ const AllBlogs = ({ searchedBlogs, setOneBlog }) => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

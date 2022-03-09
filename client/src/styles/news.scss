@@ -32,7 +32,7 @@
   border: none;
   width: 100%;
   height: 35px;
-  background-color: rgb(220, 248, 240);
+  background-color: $inputBGColor;
   border-radius: 5px;
   padding: 0px 0px 0px 20px;
 }
@@ -43,7 +43,7 @@
   border: none;
   width: 100%;
   height: 35px;
-  background-color: rgb(220, 248, 240);
+  background-color: $inputBGColor;
   border-radius: 5px;
   padding: 0px 0px 0px 20px;
 }
@@ -58,13 +58,54 @@
 }
 
 .allBlogsLink {
-  margin: 20px 0px 10px 0px;
-  background-color: red;
-  width: 100px;
-  border: none;
-  outline: none;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 10px 0px 20px 0px;
+}
+
+.mobileBlogSearch {
+  display: none;
+}
+
+@media screen and (max-width: $LargeScreen) {
+  .blogs {
+    width: 448px;
+  }
+}
+
+@media screen and (max-width: $MediumScreen) {
+  .blogSection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blogs {
+    width: 320px;
+    margin: 22px 0px 20px 0px;
+  }
+
+  .blogSearch {
+    padding: 0px 0px 0px 0px;
+  }
+
+  .subscribeInput {
+    padding: 0px 0px 0px 0px;
+  }
+
+  .blogsSideBar {
+    margin: 50px 0px 0px 0px;
+  }
+
+  .blogSearch {
+    display: none;
+  }
+
+  .mobileBlogSearch {
+    display: block;
+    margin: 22px 0px 5px 0px;
+    outline: none;
+    border: none;
+    width: 300px;
+    height: 35px;
+    background-color: $inputBGColor;
+    border-radius: 5px;
+  }
 }

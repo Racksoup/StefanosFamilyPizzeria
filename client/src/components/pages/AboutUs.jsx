@@ -60,8 +60,8 @@ const AboutUs = () => {
             </div>
           </div>
           <div className='about-usSection2ButtonFlex'>
-            <ItalianButton text='SEE TODAYS MENU' />
-            <ItalianButton text='ORDER NOW' />
+            <ItalianButton text='SEE TODAYS MENU' width='150px' />
+            <ItalianButton text='ORDER NOW' width='150px' />
           </div>
         </div>
       </div>

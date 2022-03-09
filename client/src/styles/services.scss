@@ -13,7 +13,7 @@
 
 .servicesSection2TopDisplay {
   margin: 20px 0px 40px 0px;
-  width: 1050px;
+  width: auto;
   display: flex;
   justify-content: space-between;
 }
@@ -57,4 +57,56 @@
   width: 850px;
   height: 1px;
   background-color: rgba(66, 66, 66, 0.7);
+}
+
+.itemDisplayPositioning {
+  margin: 0px 5px;
+}
+
+@media screen and (max-width: $LargeScreen) {
+  .servicesSection2TopDisplay {
+    margin: 20px 0px 40px 0px;
+    width: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10px;
+    place-items: center;
+  }
+
+  .servicesSection4Bar {
+    width: $MediumScreen;
+    margin: 20px 0px 40px 0px;
+  }
+
+  .servicesSection4TopDisplay {
+    width: $MediumScreen;
+  }
+
+  .itemDisplayPositioning {
+    margin: 0px 0px;
+  }
+}
+
+@media screen and (max-width: $MediumScreen) {
+  .servicesSection2TopDisplay {
+    margin: 20px 0px 40px 0px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .servicesSection3 {
+    height: 180px;
+    line-height: 55px;
+    text-align: center;
+  }
+
+  .servicesSection4TopDisplay {
+    width: 320px;
+    flex-direction: column;
+  }
+  .servicesSection4Bar {
+    width: 320px;
+  }
 }

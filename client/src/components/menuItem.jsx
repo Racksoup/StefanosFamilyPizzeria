@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/menuItem.css';
+import '../styles/menuItem.scss';
 
 const menuItem = (props) => {
   const itemImage = props.itemImage;

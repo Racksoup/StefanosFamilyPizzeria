@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/firstSection.css';
+import '../styles/firstSection.scss';
 import ItalianButton from './italianButton';
 
 const FirstSection = (props) => {
@@ -14,7 +14,7 @@ const FirstSection = (props) => {
         className='firstSection firstSectionHome'
         style={{ backgroundImage: 'url(' + sectionImg + ')' }}
       >
-        <div className='firstSectionText MediumWhite'>{text}</div>
+        <div className='firstSectionTextHome LargeWhite'>{text}</div>
         <div className='firstSectionTitle XLargeWhiteHandwriting'>{title}</div>
         <ItalianButton text='SEE TODAYS MENU' />
       </div>
@@ -22,7 +22,7 @@ const FirstSection = (props) => {
   } else {
     return (
       <div className='firstSection' style={{ backgroundImage: 'url(' + sectionImg + ')' }}>
-        <div className='firstSectionText MediumWhite'>{text}</div>
+        <div className='firstSectionText LargeWhite'>{text}</div>
         <div className='firstSectionTitle XLargeWhiteHandwriting'>{title}</div>
       </div>
     );

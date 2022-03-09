@@ -1,3 +1,5 @@
+@import './App.scss';
+
 .italianButton {
   width: 160px;
   height: 40px;
@@ -8,7 +10,7 @@
 .top {
   height: 88%;
   width: 100%;
-  background-color: red;
+  background-color: $red;
   border-radius: 5px 5px 0px 0px;
   display: flex;
   justify-content: center;
@@ -18,11 +20,11 @@
 .middle {
   height: 6%;
   width: 100%;
-  background-color: white;
+  background-color: $white;
 }
 
 .bottom {
   height: 6%;
   width: 100%;
-  background-color: green;
+  background-color: $green;
 }

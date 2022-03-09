@@ -1,5 +1,7 @@
+@import './App.scss';
+
 .reviewComp {
-  height: 500px;
+  margin: 20px 0px;
   color: white;
   width: 350px;
 }
@@ -20,4 +22,10 @@
 .reviewCompName {
   display: flex;
   flex-direction: row;
+}
+
+@media screen and (max-width: $MediumScreen) {
+  .reviewComp {
+    width: 320px;
+  }
 }

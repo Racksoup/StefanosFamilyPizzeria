@@ -2,7 +2,6 @@
 
 .about-usSection2 {
   @include trimBorder;
-  height: 855px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,6 +12,7 @@
   flex-direction: column;
   align-items: center;
   width: 890px;
+  margin: 0px 0px 50px 0px;
 }
 
 .about-usSection2ImageFlex {
@@ -57,7 +57,6 @@
 }
 
 .about-usSection3 {
-  height: 690px;
   width: 100%;
   background-image: url('../images/CutPizzaBG.jpg');
   background-position: center;
@@ -71,7 +70,7 @@
 }
 
 .reviewFlex {
-  margin: 80px 0px 0px 0px;
+  margin: 80px 0px 70px 0px;
   width: 1200px;
   display: flex;
   justify-content: space-between;
@@ -86,4 +85,63 @@
 
 .about-usSection4Img {
   width: 1000px;
+}
+
+@media screen and (max-width: $LargeScreen) {
+  .reviewFlex {
+    margin: 20px 0px 70px 0px;
+    width: auto;
+    flex-direction: column;
+  }
+
+  .about-usSection2Content {
+    width: 700px;
+  }
+
+  .about-usSection2Image {
+    width: 320px;
+    height: 210px;
+  }
+
+  .about-usSection2Desc {
+    height: 180px;
+  }
+  .about-usSection4Img {
+    width: 800px;
+  }
+}
+
+@media screen and (max-width: $MediumScreen) {
+  .about-usSection2ImageFlex {
+    flex-direction: column;
+    width: 320px;
+  }
+
+  .about-usSection2Content {
+    width: 320px;
+  }
+
+  .about-usSection4 {
+    display: none;
+  }
+
+  .about-usSection2ButtonFlex {
+    width: 320px;
+    margin: 15px 0px 0px 0px;
+  }
+
+  .about-usSection2DescFlex {
+    width: 320px;
+    margin: 0px 0px 0px 0px;
+    flex-direction: column;
+  }
+
+  .about-usSection2Desc {
+    width: 100%;
+    margin: 0px 0px 20px 0px;
+  }
+
+  .reviewFlex {
+    width: 320px;
+  }
 }

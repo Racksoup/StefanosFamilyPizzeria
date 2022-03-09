@@ -2,173 +2,271 @@ html {
   height: 100%;
   overflow-x: hidden;
 }
-
 body {
   min-height: 100%;
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-.linkStyle {
-  text-decoration: none;
-}
+// vars
+$xSmallText: 14px;
+$smallText: 18px;
+$sMediumText: 22px;
+$mediumText: 25px;
+$largeText: 40px;
+$XlargeText: 72px;
+$X2largeText: 80px;
+$X3largeText: 110px;
 
-.redBGHover {
-  background-color: rgb(255, 51, 51);
-}
+$largeText-small: 28px;
+$XlargeText-small: 45px;
+$X3largeText-small: 80px;
 
-.redBGHover:hover {
-  background-color: rgba(0, 0, 0, 0);
-  border: solid 2px rgb(255, 51, 51);
-}
+$xSmallText-xSmall: 14px;
+$smallText-xSmall: 14px;
+$sMediumText-xSmall: 14px;
+$mediumText-xSmall: 18px;
+$largeText-xSmall: 20px;
+$XlargeText-xSmall: 30px;
+$X2largeText-xSmall: 35px;
+$X3largeText-xSmall: 40px;
 
-.transparentBGHover {
-  background-color: rgba(0, 0, 0, 0);
-  border: solid 2px rgb(255, 51, 51);
-  font-family: 'Open Sans';
-  font-size: 14px;
-  font-style: italic;
-  color: Red;
-}
+$red: rgb(231, 24, 24);
+$inputBGColor: rgb(220, 248, 240);
+$white: rgb(255, 255, 255);
+$black: rgb(0, 0, 0);
+$green: rgb(0, 145, 12);
 
-.transparentBGHover:hover {
-  background-color: rgb(255, 51, 51);
-  color: White;
-}
+$LargeScreen: 1214px;
+$MediumScreen: 767px;
 
+// white
+.XLargeWhiteHandwriting {
+  font-family: 'Arizonia';
+  font-size: $X3largeText;
+  color: $white;
+}
+.LargeWhiteHandwriting {
+  font-family: 'Merienda One';
+  font-size: $XlargeText;
+  color: $white;
+}
 .XLargeWhite {
   font-family: 'Open Sans';
-  font-size: 80px;
-  color: White;
+  font-size: $X2largeText;
+  color: $white;
 }
-
 .LargeWhite {
   font-family: 'Open Sans';
-  font-size: 40px;
-  color: White;
+  font-size: $largeText;
+  color: $white;
 }
-
 .MediumWhite {
   font-family: 'Bahnschrift';
-  font-size: 30px;
-  color: White;
+  font-size: $mediumText;
+  color: $white;
 }
-
+.SMediumWhite {
+  font-family: 'Open Sans';
+  font-size: $sMediumText;
+  color: $white;
+}
 .SmallWhite {
   font-family: 'Open Sans';
-  font-size: 20px;
-  color: White;
+  font-size: $smallText;
+  color: $white;
 }
-
 .XSmallWhite {
   font-family: 'Open Sans';
-  font-size: 14px;
+  font-size: $xSmallText;
   line-height: 26px;
-  color: White;
+  color: $white;
 }
 
+// Black
 .LargeBlack {
   font-family: 'Open Sans';
-  font-size: 50px;
-  color: Black;
+  font-size: $largeText;
+  color: $black;
 }
-
 .MediumBlack {
   font-family: 'Bahnschrift';
-  font-size: 30px;
-  color: Black;
+  font-size: $mediumText;
+  color: $black;
 }
-
+.SMediumBlack {
+  font-family: 'Open Sans';
+  font-size: $sMediumText;
+  color: $black;
+}
 .SmallBlack {
   font-family: 'Open Sans';
-  font-size: 20px;
-  color: Black;
+  font-size: $smallText;
+  color: $black;
 }
-
 .XSmallBlack {
   font-family: 'Open Sans';
-  font-size: 14px;
+  font-size: $xSmallText;
   line-height: 26px;
-  color: Black;
+  color: $black;
+}
+.LargeBlackHandwriting {
+  font-family: 'Merienda One';
+  font-size: $XlargeText;
+  color: $black;
+}
+.XLargeBlackHandwriting {
+  font-family: 'Arizonia';
+  font-size: $XlargeText;
+  color: $black;
 }
 
+// Red
 .LargeRed {
   font-family: 'Open Sans';
-  font-size: 50px;
+  font-size: $largeText;
   font-style: italic;
-  color: Red;
+  color: $red;
 }
-
 .MediumRed {
   font-family: 'Open Sans';
   font-style: italic;
-  font-size: 30px;
-  color: Red;
+  font-size: $mediumText;
+  color: $red;
 }
-
+.SMediumRed {
+  font-family: 'Open Sans';
+  font-size: $sMediumText;
+  color: $red;
+}
 .SmallRed {
   font-family: 'Open Sans';
-  font-size: 20px;
+  font-size: $smallText;
   font-style: italic;
-  color: Red;
+  color: $red;
 }
-
 .XSmallRed {
   font-family: 'Open Sans';
-  font-size: 14px;
+  font-size: $xSmallText;
   line-height: 26px;
   font-style: italic;
-  color: Red;
+  color: $red;
 }
 
-.XLargeBlackHandwriting {
-  font-family: 'Arizonia';
-  font-size: 72px;
-  color: Black;
-}
-
-.LargeBlackHandwriting {
-  font-family: 'Merienda One';
-  font-size: 64px;
-  color: Black;
-}
-
-.XLargeWhiteHandwriting {
-  font-family: 'Arizonia';
-  font-size: 110px;
-  color: white;
-}
-
-.LargeWhiteHandwriting {
-  font-family: 'Merienda One';
-  font-size: 64px;
-  color: white;
-}
-
+// Green
 .GreenUnderlineText {
   font-family: 'Bahnschrift';
-  font-size: 20px;
-  color: green;
+  font-size: $smallText;
+  color: $green;
   text-decoration: underline;
 }
-
 .XSmallGreen {
   font-family: 'Bahnschrift';
-  font-size: 14px;
-  color: green;
+  font-size: $xSmallText;
+  color: $green;
   text-decoration: underline;
 }
 
+@media screen and (max-width: $LargeScreen) {
+  // white
+  .XLargeWhiteHandwriting {
+    font-size: $X3largeText-small;
+  }
+  .LargeWhiteHandwriting {
+    font-size: $XlargeText-small;
+  }
+  .XLargeWhite {
+    font-size: $XlargeText-small;
+  }
+  .LargeWhite {
+    font-size: $largeText-small;
+  }
+}
+@media screen and (max-width: $MediumScreen) {
+  // white
+  .XLargeWhiteHandwriting {
+    font-size: $X3largeText-xSmall;
+  }
+  .LargeWhiteHandwriting {
+    font-size: $XlargeText-xSmall;
+  }
+  .XLargeWhite {
+    font-size: $XlargeText-xSmall;
+  }
+  .LargeWhite {
+    font-size: $largeText-xSmall;
+  }
+  .MediumWhite {
+    font-size: $mediumText-xSmall;
+  }
+  .SMediumWhite {
+    font-size: $sMediumText-xSmall;
+  }
+  .SmallWhite {
+    font-size: $smallText-xSmall;
+  }
+  .XSmallWhite {
+    font-size: $xSmallText-xSmall;
+  }
+
+  // Black
+  .LargeBlack {
+    font-size: $largeText-xSmall;
+  }
+  .MediumBlack {
+    font-size: $mediumText-xSmall;
+  }
+  .SMediumBlack {
+    font-size: $sMediumText-xSmall;
+  }
+  .SmallBlack {
+    font-size: $smallText-xSmall;
+  }
+  .XSmallBlack {
+    font-size: $xSmallText-xSmall;
+  }
+  .LargeBlackHandwriting {
+    font-size: $XlargeText-xSmall;
+  }
+  .XLargeBlackHandwriting {
+    font-size: $XlargeText-xSmall;
+  }
+
+  // Red
+  .LargeRed {
+    font-size: $largeText-xSmall;
+  }
+  .MediumRed {
+    font-size: $mediumText-xSmall;
+  }
+  .SMediumRed {
+    font-size: $sMediumText-xSmall;
+  }
+  .SmallRed {
+    font-size: $smallText-xSmall;
+  }
+  .XSmallRed {
+    font-size: $xSmallText-xSmall;
+  }
+
+  // Green
+  .GreenUnderlineText {
+    font-size: $smallText-xSmall;
+  }
+  .XSmallGreen {
+    font-size: $xSmallText-xSmall;
+  }
+}
+
+// Trim Border BG
 @mixin trimBorder() {
   width: 100%;
   background-color: white;
@@ -188,7 +286,7 @@ img {
         #ffffff 66.667%,
         transparent 66.667%
       );
-    background-size: 20px 40px;
+    background-size: 14px 40px;
   }
 
   &:after {
@@ -206,7 +304,7 @@ img {
         #ffffff 66.667%,
         transparent 66.667%
       );
-    background-size: 20px 40px;
+    background-size: 14px 40px;
   }
 }
 
@@ -233,10 +331,49 @@ img {
   }
 }
 
+// Red Button Styles
+.transparentBGHover {
+  background-color: rgba(0, 0, 0, 0);
+  border: solid 2px $red;
+  font-family: 'Open Sans';
+  font-size: $xSmallText;
+  font-style: italic;
+  color: $red;
+}
+.transparentBGHover:hover {
+  background-color: $red;
+  color: White;
+}
+.redBGHover {
+  background-color: $red;
+}
+.redBGHover:hover {
+  background-color: rgba(0, 0, 0, 0);
+  border: solid 2px $red;
+}
+
+// util
 .menuGrid {
   width: 850px;
   padding: 35px 0px 35px 0px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
+}
+.linkStyle {
+  text-decoration: none;
+}
+
+@media screen and (max-width: $LargeScreen) {
+  .menuGrid {
+    width: 700px;
+  }
+}
+
+@media screen and (max-width: $MediumScreen) {
+  .menuGrid {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+  }
 }

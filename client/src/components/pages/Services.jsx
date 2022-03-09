@@ -32,12 +32,14 @@ const Services = ({ pizzaMenuItems, pastaMenuItems, getPastaMenuItems, getPizzaM
               if (item.bestSeller === true) {
                 s2TopDisplayLimit += 1;
                 return (
-                  <ItemDisplay
-                    title={item.title}
-                    price={item.price}
-                    srcImg={item.image_filename}
-                    textColor='black'
-                  />
+                  <div className='itemDisplayPositioning'>
+                    <ItemDisplay
+                      title={item.title}
+                      price={item.price}
+                      srcImg={item.image_filename}
+                      textColor='black'
+                    />
+                  </div>
                 );
               } else return null;
             }

@@ -75,3 +75,24 @@
   align-self: center;
   margin: 0px 0px 0px 10px;
 }
+
+@media screen and (max-width: $MediumScreen) {
+  .singleBlogContainer {
+    width: 320px;
+  }
+
+  .singleBlogInfoBar {
+    flex-direction: column;
+    place-self: center;
+  }
+
+  .singleBlogDate {
+    margin: 10px 0px 0px 0px;
+  }
+
+  .singleBlogText {
+    margin: 25px 0px 1px 0px;
+    height: 100px;
+    overflow: hidden;
+  }
+}
