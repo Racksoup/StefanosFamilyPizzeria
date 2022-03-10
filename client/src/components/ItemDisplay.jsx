@@ -8,9 +8,7 @@ const ItemDisplay = (props) => {
   const textColor = props.textColor;
   return (
     <div className='bestSellerItem'>
-      <div className='bestSellerImg'>
-        <img src={`api/menuitems/image/${srcImg}`} />
-      </div>
+      <img className='bestSellerImg' src={`api/menuitems/image/${srcImg}`} />
       {textColor === 'black' ? (
         <div className='SmallBlack'>{title}</div>
       ) : (

@@ -2,9 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 5px 0px;
 }
 
 .bestSellerImg {
   width: 250px;
   height: 190px;
+  object-fit: cover;
 }

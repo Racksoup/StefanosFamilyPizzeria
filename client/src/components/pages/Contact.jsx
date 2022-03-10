@@ -18,6 +18,8 @@ const Contact = () => {
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const onEnter = () => {};
   return (
     <div>
       <Header />
@@ -65,7 +67,9 @@ const Contact = () => {
             placeholder='Message'
             autoComplete='off'
           />
-          <ItalianButton text='SEND MESSAGE' />
+          <div onClick={() => onEnter()}>
+            <ItalianButton text='SEND MESSAGE' />
+          </div>
         </div>
       </div>
       <Footer />

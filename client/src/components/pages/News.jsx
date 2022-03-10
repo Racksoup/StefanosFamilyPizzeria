@@ -10,11 +10,14 @@ import ItalianButton from '../italianButton.jsx';
 import sectionImg from '../../images/PizzaBG.jpg';
 import '../../styles/news.scss';
 
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const News = ({ blogs, saleImages, getAllBlogs, getSaleImages, setOneBlog, setSearchedBlogs }) => {
   const [newestBlogs, setNewestBlogs] = useState([]);
+  const [redirectBlogs, setRedirectBlogs] = useState(false);
+  const [search, setSearch] = useState('');
+  const [searchList, setSearchList] = useState();
   useEffect(() => {
     getAllBlogs();
     getSaleImages();
@@ -26,6 +29,27 @@ const News = ({ blogs, saleImages, getAllBlogs, getSaleImages, setOneBlog, setSe
     sortedBlogs = sortedBlogs.slice(0, 3);
     setNewestBlogs(sortedBlogs);
   }, [blogs]);
+
+  const onSearchEnter = (event) => {
+    if (event.key === 'Enter') {
+      if (searchList.length > 0) {
+        setSearchedBlogs(searchList);
+        setRedirectBlogs(true);
+      }
+    }
+  };
+  const onSearchChange = (e) => {
+    setSearch(e.target.value);
+    console.log(search);
+    const filtered = blogs.filter((blog) => {
+      return blog.title.toLowerCase().includes(search.toLowerCase());
+    });
+    setSearchList(filtered);
+  };
+
+  if (redirectBlogs) {
+    return <Navigate to='/blogs' />;
+  }
 
   return (
     <div>
@@ -39,7 +63,7 @@ const News = ({ blogs, saleImages, getAllBlogs, getSaleImages, setOneBlog, setSe
               if (blog.favorite === true) {
                 return (
                   <Link className='linkStyle' to='/blog'>
-                    <div onClick={setOneBlog(blog)}>
+                    <div onClick={() => setOneBlog(blog)}>
                       <BlogItem blog={blog} />
                     </div>
                   </Link>
@@ -48,12 +72,21 @@ const News = ({ blogs, saleImages, getAllBlogs, getSaleImages, setOneBlog, setSe
             })}
         </div>
         <div className='blogsSideBar'>
-          <input className='blogSearch' placeholder='Search Blogs' autoComplete='off' />
+          <input
+            className='blogSearch'
+            placeholder='Search Blogs'
+            autoComplete='off'
+            name='search'
+            onChange={(e) => onSearchChange(e)}
+            onKeyDown={(event) => onSearchEnter(event)}
+          />
           {saleImages[0] && (
-            <img
-              className='saleImage'
-              src={`api/saleimages/image/${saleImages[0].image_filename}`}
-            />
+            <Link to='/services'>
+              <img
+                className='saleImage'
+                src={`api/saleimages/image/${saleImages[0].image_filename}`}
+              />
+            </Link>
           )}
           <div className='SmallBlack'>Subscribe to our Newsletter</div>
           <input className='subscribeInput' placeholder='Enter your E-mail' autoComplete='off' />
@@ -62,21 +95,23 @@ const News = ({ blogs, saleImages, getAllBlogs, getSaleImages, setOneBlog, setSe
           {blogs &&
             newestBlogs.map((blog) => (
               <Link className='linkStyle' to='/blog'>
-                <div onClick={setOneBlog(blog)}>
+                <div onClick={() => setOneBlog(blog)}>
                   <LatestBlog blog={blog} />
                 </div>
               </Link>
             ))}
-          <div className='allBlogsLink' onClick={setSearchedBlogs(blogs)}>
+          <div className='allBlogsLink' onClick={() => setSearchedBlogs(blogs)}>
             <Link className='linkStyle' to='/blogs'>
               <ItalianButton text='All Blogs' width='100%' />
             </Link>
           </div>
-          {saleImages[0] && (
-            <img
-              className='saleImage'
-              src={`api/saleimages/image/${saleImages[1].image_filename}`}
-            />
+          {saleImages[1] && (
+            <Link to='/services'>
+              <img
+                className='saleImage'
+                src={`api/saleimages/image/${saleImages[1].image_filename}`}
+              />
+            </Link>
           )}
         </div>
       </div>

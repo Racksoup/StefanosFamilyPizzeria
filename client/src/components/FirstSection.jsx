@@ -16,7 +16,9 @@ const FirstSection = (props) => {
       >
         <div className='firstSectionTextHome LargeWhite'>{text}</div>
         <div className='firstSectionTitle XLargeWhiteHandwriting'>{title}</div>
-        <ItalianButton text='SEE TODAYS MENU' />
+        <div onClick={props.onHeaderButtonClick}>
+          <ItalianButton text='SEE TODAYS MENU' />
+        </div>
       </div>
     );
   } else {

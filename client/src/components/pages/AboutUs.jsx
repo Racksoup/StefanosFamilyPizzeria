@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Header from '../Header.jsx';
 import FirstSection from '../FirstSection.jsx';
 import Footer from '../Footer.jsx';
@@ -11,11 +11,18 @@ import revImg from '../../images/Portatedude.jpg';
 import SoldPerDay from '../../images/SoldPerDayGraphic.png';
 import '../../styles/aboutus.scss';
 
+import { Link } from 'react-router-dom';
+
 const AboutUs = () => {
   const loremIpsum =
     'Nunc mattis enim ut tellus. Egestas dui id ornare arcu odio ut sem. Senectus et netus et malesuada fames ac turpis egestas. Elementum nibh tellus molestie nunc non blandit massa. Risus sed vulputate odio ut enim blandit volutpat. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat. Non tellus orci ac auctor augue mauris augue. Neque viverra justo nec ultrices dui sapien eget mi. Venenatis a condimentum vitae sapien pellentesque habitant. Donec massa sapien faucibus et molestie ac feugiat sed lectus. Eu augue ut lectus arcu bibendum at varius. Id semper risus in hendrerit gravida rutrum quisque non tellus. Purus sit amet volutpat consequat mauris nunc. Turpis egestas pretium aenean pharetra.';
+
+  const topRef = useRef(null);
+  const linkToTop = () => {
+    topRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
-    <div>
+    <div ref={topRef}>
       <Header />
       <FirstSection title='About Our Restaurant' text='THE BEST IN TOWN' sectionImg={sectionImg} />
       <div className='about-usSection2 jagged-border'>
@@ -60,8 +67,12 @@ const AboutUs = () => {
             </div>
           </div>
           <div className='about-usSection2ButtonFlex'>
-            <ItalianButton text='SEE TODAYS MENU' width='150px' />
-            <ItalianButton text='ORDER NOW' width='150px' />
+            <Link className='linkStyle' to='/services'>
+              <ItalianButton text='SEE TODAYS MENU' width='150px' />
+            </Link>
+            <div onClick={() => linkToTop()}>
+              <ItalianButton text='ORDER NOW' width='150px' />
+            </div>
           </div>
         </div>
       </div>

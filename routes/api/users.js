@@ -31,7 +31,6 @@ const { check, validationResult } = require('express-validator');
 //       user = new User({
 //         username,
 //         password,
-//         master,
 //       });
 
 //       // Encrypt password

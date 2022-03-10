@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Header from '../Header.jsx';
 import FirstSection from '../FirstSection.jsx';
 import ItemDisplay from '../ItemDisplay.jsx';
@@ -115,6 +115,11 @@ const Home = ({
   }, []);
 
   const [tabSel, setTabSel] = useState(0);
+  const testRef = useRef(null);
+
+  const onHeaderButtonClick = () => {
+    testRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <div>
@@ -123,12 +128,14 @@ const Home = ({
         title='Pizza & Pasta'
         text='BEST IN TOWN'
         sectionImg={sectionImg}
+        onHeaderButtonClick={onHeaderButtonClick}
         sectionSize='1000px'
       />
+      <div onClick={() => onHeaderButtonClick()}>hh</div>
       <Section2Images />
       <Section2 />
       <Section3 bestSellers={bestSellers} />
-      <div className='homeSection4 jagged-border'>
+      <div className='homeSection4 jagged-border' ref={testRef}>
         <SectionTitle title='Our Menu' textColor='black' />
         <div className='menuLinks'>
           {tabSel === 0 ? (
