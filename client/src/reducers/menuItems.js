@@ -58,7 +58,6 @@ export default function bestSellers(state = initialState, action) {
         ...state,
         allMenuItems: [...state.allMenuItems.filter((item) => item._id !== payload._id), payload],
       };
-
     case REMOVED_MENU_ITEM:
       return {
         ...state,

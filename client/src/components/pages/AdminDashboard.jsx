@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { loadUser, logout } from '../../actions/auth';
+import { loadUser, logout } from '../../actions/auth.js';
 import { createMenuItem, getAllMenuItems, removeMenuItem } from '../../actions/menuItems.js';
-import { getAllBlogs, updateBlog, removeBlog, createBlog } from '../../actions/blogs';
+import { getAllBlogs, updateBlog, removeBlog, createBlog } from '../../actions/blogs.js';
+import { createSaleImage, removeSaleImage, getSaleImages } from '../../actions/saleImages.js';
 import Header from '../Header';
 import '../../styles/adminDashboard.scss';
 import ItalianButton from '../italianButton';
@@ -19,6 +20,7 @@ const AdminDashboard = ({
   allMenuItems,
   isLoading,
   blogs,
+  saleImages,
   logout,
   loadUser,
   getAllMenuItems,
@@ -28,11 +30,15 @@ const AdminDashboard = ({
   updateBlog,
   removeBlog,
   createBlog,
+  createSaleImage,
+  removeSaleImage,
+  getSaleImages,
 }) => {
   useEffect(() => {
     loadUser();
     getAllMenuItems();
     getAllBlogs();
+    getSaleImages();
   }, []);
   const [modal, setModal] = useState(false);
   const [toggleDashboard, setToggleDashboard] = useState(0);
@@ -102,8 +108,20 @@ const AdminDashboard = ({
     }
   };
 
-  if (isAuthenticated && isLoading === false) {
-    return <Navigate to='/' />;
+  // Sale Images State
+  const [newSaleImageFile, setNewSaleImageFile] = useState('');
+  // Sale Images Funcs
+  const onSaleImageChange = (e) => {
+    setNewSaleImageFile(e.target.files[0]);
+  };
+  const onSubmitSaleImageClick = () => {
+    if (newSaleImageFile !== '') {
+      createSaleImage(newSaleImageFile);
+    }
+  };
+
+  if (isAuthenticated === false) {
+    return <Navigate to='/admin' />;
   }
   return (
     <div className='adminDashboard'>
@@ -158,8 +176,8 @@ const AdminDashboard = ({
         {toggleDashboard === 0 && (
           <div className='updateAndDeleteMenuItemsContainer'>
             <div className='updateMenuItemsContainer'>
-              <div className='MediumBlack'>Create Menu Item</div>
               <div className='createMenuItem'>
+                <div className='MediumBlack'>Create Menu Item</div>
                 <input
                   className='createMenuItemInput'
                   name='title'
@@ -181,12 +199,12 @@ const AdminDashboard = ({
                   type='text'
                   onChange={(e) => onMenuItemChange(e)}
                 />
-                <Textarea
-                  className='createMenuItemInput createMenuItemTextBox'
-                  name='text'
-                  placeholder='text'
-                  type='text'
-                  onChange={(e) => onMenuItemChange(e)}
+                <input
+                  className='createMenuItemFileInput'
+                  name='image_filename'
+                  placeholder='image'
+                  type='file'
+                  onChange={(e) => onMenuFileChange(e)}
                 />
                 <div className='createMenuItemLabelFlex'>
                   <div className='SmallBlack '>BestSeller: </div>
@@ -199,12 +217,12 @@ const AdminDashboard = ({
                     onChange={(e) => onMenuCheckboxChange(e)}
                   />
                 </div>
-                <input
-                  className='createMenuItemFileInput'
-                  name='image_filename'
-                  placeholder='image'
-                  type='file'
-                  onChange={(e) => onMenuFileChange(e)}
+                <Textarea
+                  className='createMenuItemInput createMenuItemTextBox'
+                  name='text'
+                  placeholder='text'
+                  type='text'
+                  onChange={(e) => onMenuItemChange(e)}
                 />
               </div>
               <div onClick={() => onSubmitMenuItemClick()}>
@@ -245,12 +263,19 @@ const AdminDashboard = ({
         {toggleDashboard === 1 && (
           <div className='updateAndDeleteMenuItemsContainer'>
             <div className='updateMenuItemsContainer'>
-              <div className='MediumBlack'>Create Blog</div>
               <div className='createMenuItem'>
+                <div className='MediumBlack'>Create Blog</div>
                 <input
                   className='createMenuItemInput'
                   name='title'
                   placeholder='title'
+                  type='text'
+                  onChange={(e) => onBlogChange(e)}
+                />
+                <input
+                  className='createMenuItemInput'
+                  name='category'
+                  placeholder='category'
                   type='text'
                   onChange={(e) => onBlogChange(e)}
                 />
@@ -262,11 +287,11 @@ const AdminDashboard = ({
                   onChange={(e) => onBlogChange(e)}
                 />
                 <input
-                  className='createMenuItemInput'
-                  name='category'
-                  placeholder='category'
-                  type='text'
-                  onChange={(e) => onBlogChange(e)}
+                  className='createMenuItemFileInput'
+                  name='image_filename'
+                  placeholder='image'
+                  type='file'
+                  onChange={(e) => onBlogFileChange(e)}
                 />
 
                 <div className='createMenuItemLabelFlex'>
@@ -280,21 +305,14 @@ const AdminDashboard = ({
                     onChange={(e) => onBlogCheckboxChange(e)}
                   />
                 </div>
-                <input
-                  className='createMenuItemFileInput'
-                  name='image_filename'
-                  placeholder='image'
-                  type='file'
-                  onChange={(e) => onBlogFileChange(e)}
+                <Textarea
+                  className='createMenuItemInput createMenuItemTextBox'
+                  name='text'
+                  placeholder='text'
+                  type='text'
+                  onChange={(e) => onBlogChange(e)}
                 />
               </div>
-              <Textarea
-                className='createMenuItemInput createMenuItemTextBox'
-                name='text'
-                placeholder='text'
-                type='text'
-                onChange={(e) => onBlogChange(e)}
-              />
               <div onClick={() => onSubmitBlogClick()}>
                 <ItalianButton text='Create' width='250px' />
               </div>
@@ -329,7 +347,48 @@ const AdminDashboard = ({
             </div>
           </div>
         )}
-        {toggleDashboard === 2 && <div className='updateSaleImages'></div>}
+        {toggleDashboard === 2 && (
+          <div className='updateAndDeleteMenuItemsContainer'>
+            <div className='updateMenuItemsContainer'>
+              <div className='createMenuItem'>
+                <div className='MediumBlack'>Create Sale Image</div>
+                <input
+                  className='createMenuItemFileInput'
+                  name='image_filename'
+                  placeholder='image'
+                  type='file'
+                  onChange={(e) => onSaleImageChange(e)}
+                />
+              </div>
+              <div onClick={() => onSubmitSaleImageClick()}>
+                <ItalianButton text='Create' width='250px' />
+              </div>
+            </div>
+
+            <div className='updateMenuItemsTable'>
+              <div className='MediumBlack'>Delete Sale Image</div>
+              {saleImages.map((image) => {
+                return (
+                  <div className='updateMenuItemFlex'>
+                    <img
+                      className='updateSaleImageImage'
+                      src={`/api/saleimages/image/${image.image_filename}`}
+                    />
+
+                    <div
+                      className='updateMenuItemButton'
+                      onClick={() => {
+                        removeSaleImage(image);
+                      }}
+                    >
+                      <ItalianButton text='Delete' width='70px' />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -341,6 +400,7 @@ const mapStateToProps = (state) => ({
   isLoading: state.auth.isLoading,
   allMenuItems: state.menuItems.allMenuItems,
   blogs: state.blogs.blogs,
+  saleImages: state.saleImages.saleImages,
 });
 
 export default connect(mapStateToProps, {
@@ -353,4 +413,7 @@ export default connect(mapStateToProps, {
   createBlog,
   updateBlog,
   removeBlog,
+  createSaleImage,
+  removeSaleImage,
+  getSaleImages,
 })(AdminDashboard);
