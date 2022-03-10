@@ -84,14 +84,7 @@ const Services = ({ pizzaMenuItems, pastaMenuItems, getPastaMenuItems, getPizzaM
           {pastaMenuItems.map((item) => {
             if (s4BottomDisplayLimit < 8) {
               if (item.bestSeller === false || item.bestSeller === undefined) {
-                return (
-                  <MenuItem
-                    itemText={item.text}
-                    itemPrice={item.price}
-                    itemTitle={item.title}
-                    itemImage={item.image_filename}
-                  />
-                );
+                return <MenuItem item={item} />;
               }
             }
           })}

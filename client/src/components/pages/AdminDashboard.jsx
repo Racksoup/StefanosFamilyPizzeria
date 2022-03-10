@@ -34,7 +34,7 @@ const AdminDashboard = ({
     category: '',
     price: '',
     text: '',
-    bestSeller: false,
+    bestSeller: undefined,
   });
 
   if ((!isAuthenticated || !user) && isLoading === false) {
@@ -46,6 +46,10 @@ const AdminDashboard = ({
   };
   const onMenuFileChange = (e) => {
     setMenuItemFile(e.target.files[0]);
+  };
+  const onMenuCheckboxChange = (e) => {
+    setMenuItem({ ...menuItem, [e.target.name]: !menuItem.bestSeller });
+    console.log(menuItem[e.target.name]);
   };
 
   const onSubmitClick = () => {
@@ -112,8 +116,9 @@ const AdminDashboard = ({
                   className='createMenuItemCheckbox'
                   name='bestSeller'
                   placeholder='bestSeller'
+                  checked={menuItem.bestSeller}
                   type='checkbox'
-                  onChange={(e) => onMenuItemChange(e)}
+                  onChange={(e) => onMenuCheckboxChange(e)}
                 />
               </div>
               <input
