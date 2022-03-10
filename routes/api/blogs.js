@@ -92,16 +92,13 @@ router.put('/:_id', [auth, upload.single('file')], async (req, res) => {
     date,
     text,
     favorite,
-    image_filename: req.file.filename,
   };
 
+  if (req.file) {
+    postItem.image_filename = req.file.filename;
+  }
+
   try {
-    let oldBlog = await Blogs.findOne({ _id: req.params._id });
-    gfs.remove({ filename: oldBlog.image_filename, root: 'blogImages' }, (err, gridStore) => {
-      if (err) {
-        return res.status(404).json(err);
-      }
-    });
     const item = await Blogs.findOneAndUpdate({ _id: req.params._id }, postItem);
     await item.save();
     res.json(item);
@@ -123,7 +120,7 @@ router.delete('/:_id', auth, async (req, res) => {
         return res.status(404).json(err);
       }
     });
-    res.json({ msg: 'Blog Deleted' });
+    res.json(oldBlog);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
@@ -210,41 +207,41 @@ router.get('/image/:filename', async (req, res) => {
   });
 });
 
-// // @route   DELETE api/blogs/deleteimage/:filename
-// // @desc    Delete Image By Name
-// // @access  private
-// router.delete('/deleteimage/:filename', auth, async (req, res) => {
-//   const delImage = await gfs.remove(
-//     { filename: req.params.filename, root: 'blogImages' },
-//     (err, GridFSBucket) => {
-//       if (err) {
-//         return res.status(404).json({ err: err });
-//       }
-//     }
-//   );
-//   res.json(delImage);
-// });
+// @route   DELETE api/blogs/deleteimage/:filename
+// @desc    Delete Image By Name
+// @access  private
+router.delete('/deleteimage/:filename', auth, async (req, res) => {
+  const delImage = await gfs.remove(
+    { filename: req.params.filename, root: 'blogImages' },
+    (err, GridFSBucket) => {
+      if (err) {
+        return res.status(404).json({ err: err });
+      }
+    }
+  );
+  res.json(delImage);
+});
 
-// // @route   DELETE api/blogs/deleteimage/id/:files_id
-// // @desc    Delete Image By id
-// // @access  Private
-// router.delete('/deleteimage/id/:files_id', auth, async (req, res) => {
-//   const delImage = await gfs.remove(
-//     { _id: req.params.files_id, root: 'blogImages' },
-//     (err, GridFSBucket) => {
-//       if (err) {
-//         return res.status(404).json({ err: err });
-//       }
-//     }
-//   );
-//   res.json(delImage);
-// });
+// @route   DELETE api/blogs/deleteimage/id/:files_id
+// @desc    Delete Image By id
+// @access  Private
+router.delete('/deleteimage/id/:files_id', auth, async (req, res) => {
+  const delImage = await gfs.remove(
+    { _id: req.params.files_id, root: 'blogImages' },
+    (err, GridFSBucket) => {
+      if (err) {
+        return res.status(404).json({ err: err });
+      }
+    }
+  );
+  res.json(delImage);
+});
 
-// // @route   POST api/blogs/uploadimage
-// // @desc    Upload image
-// // @access  Private
-// router.post('/uploadimage', [auth, upload.single('file')], (req, res) => {
-//   res.json({ file: req.file });
-// });
+// @route   POST api/blogs/uploadimage
+// @desc    Upload image
+// @access  Private
+router.post('/uploadimage', [auth, upload.single('file')], (req, res) => {
+  res.json({ file: req.file });
+});
 
 module.exports = router;

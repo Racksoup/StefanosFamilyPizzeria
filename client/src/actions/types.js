@@ -18,3 +18,6 @@ export const LOGOUT = 'LOGOUT';
 export const UPDATE_MENU_ITEM = 'UPDATE_MENU_ITEM';
 export const REMOVED_MENU_ITEM = 'REMOVED_MENU_ITEM';
 export const CREATE_MENU_ITEM = 'CREATE_MENU_ITEM';
+export const UPDATED_BLOG = 'UPDATED_BLOG';
+export const CREATED_BLOG = 'CREATED_BLOG';
+export const REMOVED_BLOG = 'REMOVED_BLOG';

@@ -74,6 +74,7 @@
   margin: 2px 0px 0px 10px;
   height: 20px;
   width: 20px;
+  cursor: pointer;
 }
 
 .createMenuItemFileInput {
@@ -100,6 +101,54 @@
 
 .updateMenuItemButton {
   margin: 0px 5px;
+}
+
+.createMenuItemTextBox {
+  max-width: 700px;
+}
+
+.adminDashboardSelectorBox {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  align-items: center;
+}
+
+.adminDashboardSelectors {
+  display: flex;
+  justify-content: center;
+}
+
+.adminDashboardSelectorItem {
+  width: 120px;
+  height: 35px;
+  background-color: $white;
+  border-radius: 6px 6px 0px 0px;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.adminDashboardSelectorItemSelected {
+  width: 120px;
+  height: 35px;
+  background-color: $red;
+  border-radius: 6px 6px 0px 0px;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+
+.adminDashboardSelectorBar {
+  width: 100%;
+  height: 4px;
+  background-color: $red;
 }
 
 @media screen and (max-width: $MediumScreen) {
