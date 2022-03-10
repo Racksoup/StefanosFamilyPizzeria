@@ -32,11 +32,11 @@ const Header = () => {
         <div className='headerContactButton redBGHover'>
           <div className='XSmallWhite'>ORDER: +1 613 872 8393</div>
         </div>
-        <div class='list-choice'>
-          <div class='list-choice-title'>
+        <div className='list-choice'>
+          <div className='list-choice-title'>
             <img className='dropdownIcon' src={dropdownIcon} alt='dropdownIcon' />
           </div>
-          <div class='list-choice-objects'>
+          <div className='list-choice-objects'>
             <label>
               <input type='radio' name='pageLink' />
               <span>

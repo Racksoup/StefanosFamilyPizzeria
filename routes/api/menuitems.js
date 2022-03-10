@@ -83,23 +83,21 @@ router.post('/', [auth, upload.single('file')], async (req, res) => {
 // @desc    Update Blog
 // @access  Private
 router.put('/:_id', [auth, upload.single('file')], async (req, res) => {
-  const { title, category, text, price, bestSeller } = req.body;
-  const postItem = {
+  const { title, category, text, price, bestSeller, image_filename } = req.body;
+  let postItem = {
     title,
     category,
     text,
     price,
     bestSeller,
-    image_filename: req.file.filename,
+    image_filename,
   };
 
+  if (req.file) {
+    postItem.image_filename = req.file.filename;
+  }
+
   try {
-    let oldBlog = await MenuItems.findOne({ _id: req.params._id });
-    gfs.remove({ filename: oldBlog.image_filename, root: 'menuitemsImages' }, (err, gridStore) => {
-      if (err) {
-        return res.status(404).json(err);
-      }
-    });
     const item = await MenuItems.findOneAndUpdate({ _id: req.params._id }, postItem);
     await item.save();
     res.json(item);
@@ -114,14 +112,17 @@ router.put('/:_id', [auth, upload.single('file')], async (req, res) => {
 // @access  Private
 router.delete('/:_id', auth, async (req, res) => {
   try {
-    let oldBlog = await MenuItems.findOne({ _id: req.params._id });
+    let oldMenuItem = await MenuItems.findOne({ _id: req.params._id });
     await MenuItems.findOneAndRemove({ _id: req.params._id });
-    gfs.remove({ filename: oldBlog.image_filename, root: 'menuitemsImages' }, (err, gridStore) => {
-      if (err) {
-        return res.status(404).json(err);
+    gfs.remove(
+      { filename: oldMenuItem.image_filename, root: 'menuitemsImages' },
+      (err, gridStore) => {
+        if (err) {
+          return res.status(404).json(err);
+        }
       }
-    });
-    res.json({ msg: 'Menu-Item Deleted' });
+    );
+    res.json(oldMenuItem);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
@@ -206,6 +207,43 @@ router.get('/image/:filename', async (req, res) => {
       });
     }
   });
+});
+
+// @route   DELETE api/menuitem/deleteimage/:filename
+// @desc    Delete Image By Name
+// @access  private
+router.delete('/deleteimage/:filename', auth, async (req, res) => {
+  const delImage = await gfs.remove(
+    { filename: req.params.filename, root: 'menuitemsImages' },
+    (err, GridFSBucket) => {
+      if (err) {
+        return res.status(404).json({ err: err });
+      }
+    }
+  );
+  res.json(delImage);
+});
+
+// @route   DELETE api/menuitem/deleteimage/id/:files_id
+// @desc    Delete Image By id
+// @access  Private
+router.delete('/deleteimage/id/:files_id', auth, async (req, res) => {
+  const delImage = await gfs.remove(
+    { files_id: req.params.files_id, root: 'menuitemsImages' },
+    (err, GridFSBucket) => {
+      if (err) {
+        return res.status(404).json({ err: err });
+      }
+    }
+  );
+  res.json(delImage);
+});
+
+// @route   POST api/blogs/uploadimage
+// @desc    Upload image
+// @access  Private
+router.post('/uploadimage', [auth, upload.single('file')], (req, res) => {
+  res.json({ file: req.file });
 });
 
 module.exports = router;

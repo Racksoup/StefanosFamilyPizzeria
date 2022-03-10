@@ -2,10 +2,10 @@ import React from 'react';
 import '../styles/menuItem.scss';
 
 const menuItem = (props) => {
-  const itemImage = props.itemImage;
-  const itemTitle = props.itemTitle;
-  const itemPrice = props.itemPrice;
-  const itemText = props.itemText;
+  const itemImage = props.item.image_filename;
+  const itemTitle = props.item.title;
+  const itemPrice = props.item.price;
+  const itemText = props.item.text;
   return (
     <div className='menuItem'>
       <img className='menuItemImg' src={`api/menuitems/image/${itemImage}`} />

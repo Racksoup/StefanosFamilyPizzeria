@@ -51,14 +51,7 @@ const Services = ({ pizzaMenuItems, pastaMenuItems, getPastaMenuItems, getPizzaM
               if (s2BottomDisplayLimit < 8) {
                 if (item.bestSeller === false || item.bestSeller === undefined) {
                   s2BottomDisplayLimit += 1;
-                  return (
-                    <MenuItem
-                      itemTitle={item.title}
-                      itemPrice={item.price}
-                      itemImage={item.image_filename}
-                      itemText={item.text}
-                    />
-                  );
+                  return <MenuItem item={item} />;
                 } else return null;
               }
             })}

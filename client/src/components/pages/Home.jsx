@@ -181,70 +181,35 @@ const Home = ({
         {tabSel === 0 ? (
           <div className='menuGrid'>
             {allMenuItems.map((item) => {
-              return (
-                <MenuItem
-                  itemImage={item.image_filename}
-                  itemTitle={item.title}
-                  itemPrice={item.price}
-                  itemText={item.text}
-                />
-              );
+              return <MenuItem item={item} />;
             })}
           </div>
         ) : null}
         {tabSel === 1 ? (
           <div className='menuGrid'>
             {pizzaMenuItems.map((item) => {
-              return (
-                <MenuItem
-                  itemImage={item.image_filename}
-                  itemTitle={item.title}
-                  itemPrice={item.price}
-                  itemText={item.text}
-                />
-              );
+              return <MenuItem item={item} />;
             })}
           </div>
         ) : null}
         {tabSel === 2 ? (
           <div className='menuGrid'>
             {pastaMenuItems.map((item) => {
-              return (
-                <MenuItem
-                  itemImage={item.image_filename}
-                  itemTitle={item.title}
-                  itemPrice={item.price}
-                  itemText={item.text}
-                />
-              );
+              return <MenuItem item={item} />;
             })}
           </div>
         ) : null}
         {tabSel === 3 ? (
           <div className='menuGrid'>
             {saladMenuItems.map((item) => {
-              return (
-                <MenuItem
-                  itemImage={item.image_filename}
-                  itemTitle={item.title}
-                  itemPrice={item.price}
-                  itemText={item.text}
-                />
-              );
+              return <MenuItem item={item} />;
             })}
           </div>
         ) : null}
         {tabSel === 4 ? (
           <div className='menuGrid'>
             {desertMenuItems.map((item) => {
-              return (
-                <MenuItem
-                  itemImage={item.image_filename}
-                  itemTitle={item.title}
-                  itemPrice={item.price}
-                  itemText={item.text}
-                />
-              );
+              return <MenuItem item={item} />;
             })}
           </div>
         ) : null}

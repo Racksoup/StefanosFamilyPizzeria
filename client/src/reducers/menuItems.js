@@ -5,6 +5,9 @@ import {
   GOT_SALAD_MENU_ITEMS,
   GOT_DESERT_MENU_ITEMS,
   GOT_BEST_SELLERS,
+  UPDATE_MENU_ITEM,
+  REMOVED_MENU_ITEM,
+  CREATE_MENU_ITEM,
 } from '../actions/types';
 
 const initialState = {
@@ -49,6 +52,22 @@ export default function bestSellers(state = initialState, action) {
       return {
         ...state,
         bestSellers: payload,
+      };
+    case UPDATE_MENU_ITEM:
+      return {
+        ...state,
+        allMenuItems: [...state.allMenuItems.filter((item) => item._id !== payload._id), payload],
+      };
+
+    case REMOVED_MENU_ITEM:
+      return {
+        ...state,
+        allMenuItems: state.allMenuItems.filter((item) => item._id !== payload._id),
+      };
+    case CREATE_MENU_ITEM:
+      return {
+        ...state,
+        allMenuItems: [...state.allMenuItems, payload],
       };
     default:
       return state;
