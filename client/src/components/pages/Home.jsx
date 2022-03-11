@@ -131,7 +131,6 @@ const Home = ({
         onHeaderButtonClick={onHeaderButtonClick}
         sectionSize='1000px'
       />
-      <div onClick={() => onHeaderButtonClick()}>hh</div>
       <Section2Images />
       <Section2 />
       <Section3 bestSellers={bestSellers} />
