@@ -56,7 +56,13 @@ const News = ({ blogs, saleImages, getAllBlogs, getSaleImages, setOneBlog, setSe
       <Header />
       <FirstSection title='Our Blog' text='THE BEST IN TOWN' sectionImg={sectionImg} />
       <div className='blogSection jagged-border'>
-        <input className='mobileBlogSearch' placeholder='Search Blogs' autoComplete='off' />
+        <input
+          className='mobileBlogSearch'
+          placeholder='Search Blogs'
+          autoComplete='off'
+          onChange={(e) => onSearchChange(e)}
+          onKeyDown={(event) => onSearchEnter(event)}
+        />
         <div className='blogs'>
           {blogs &&
             blogs.map((blog) => {
