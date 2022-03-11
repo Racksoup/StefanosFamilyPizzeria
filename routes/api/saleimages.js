@@ -3,12 +3,12 @@ const auth = require('../../middleware/auth');
 
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const { GridFsStorage } = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const multer = require('multer');
 const crypto = require('crypto');
 const path = require('path');
-const mongoose = require('mongoose');
 
 // ========================
 // DATABASE STORAGE METHOD

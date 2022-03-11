@@ -7,9 +7,11 @@ import ItalianButton from '../italianButton.jsx';
 import sectionImg from '../../images/PizzaBG2.jpg';
 import '../../styles/contact.scss';
 
+import axios from 'axios';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    senderName: '',
     email: '',
     subject: '',
     message: '',
@@ -19,7 +21,10 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const onEnter = () => {};
+  const onEnter = () => {
+    console.log(formData.message, formData.senderName);
+    axios.post('/api/mail/', formData);
+  };
   return (
     <div>
       <Header />
@@ -40,7 +45,7 @@ const Contact = () => {
           <div className='nameEmailFlex'>
             <input
               className='nameInput XSmallBlack'
-              name='name'
+              name='senderName'
               onChange={(e) => onChange(e)}
               placeholder='Name'
               autoComplete='off'
