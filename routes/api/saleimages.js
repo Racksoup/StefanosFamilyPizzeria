@@ -14,11 +14,8 @@ const path = require('path');
 // DATABASE STORAGE METHOD
 // ========================
 
-const config = require('config');
-const db = config.get('mongoURI');
-
 // Create mongo connection
-const conn = mongoose.createConnection(db);
+const conn = mongoose.createConnection(process.env.MONGOURI);
 
 // Init gfs
 let gfs;
@@ -31,7 +28,7 @@ conn.once('open', () => {
 
 // Create storage engine
 const storage = new GridFsStorage({
-  url: db,
+  url: process.env.MONGOURI,
   file: (req, file) => {
     return new Promise((resolve, reject) => {
       crypto.randomBytes(16, (err, buf) => {

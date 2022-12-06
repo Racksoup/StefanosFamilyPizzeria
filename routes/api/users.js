@@ -5,7 +5,6 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('config');
 const { check, validationResult } = require('express-validator');
 
 // @route   Post api/users
@@ -46,7 +45,7 @@ const { check, validationResult } = require('express-validator');
 //         },
 //       };
 
-//       jwt.sign(payload, config.get('jwtSecret'), { expiresIn: '1h' }, (err, token) => {
+//       jwt.sign(payload, process.env.JWTSECRET, { expiresIn: '1h' }, (err, token) => {
 //         if (err) throw err;
 //         res.json({ token });
 //       });
@@ -85,7 +84,7 @@ router.put('/', auth, [
         },
       };
 
-      jwt.sign(payload, config.get('jwtSecret'), { expiresIn: '1h' }, (err, token) => {
+      jwt.sign(payload, process.env.JWTSECRET, { expiresIn: '1h' }, (err, token) => {
         if (err) throw err;
         res.json({ token });
       });

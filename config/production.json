@@ -1,4 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://rax:Light82Arrow@cluster0.igqwi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-  "jwtSecret": "Dark82Sword"
-}
