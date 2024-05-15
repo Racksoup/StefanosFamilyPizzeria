@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import Header from '../Header.jsx';
-import Footer from '../Footer.jsx';
-import FirstSection from '../FirstSection.jsx';
-import SectionTitle from '../SectionTitle.jsx';
-import ItalianButton from '../italianButton.jsx';
-import sectionImg from '../../images/PizzaBG2.jpg';
-import '../../styles/contact.scss';
+import React, { useState } from "react";
+import Header from "../Header.jsx";
+import Footer from "../Footer.jsx";
+import FirstSection from "../FirstSection.jsx";
+import SectionTitle from "../SectionTitle.jsx";
+import ItalianButton from "../italianButton.jsx";
+import sectionImg from "../../images/PizzaBG2.jpg";
+import "../../styles/contact.scss";
 
-import axios from 'axios';
+import axios from "axios";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    senderName: '',
-    email: '',
-    subject: '',
-    message: '',
+    senderName: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const onChange = (e) => {
@@ -23,57 +23,59 @@ const Contact = () => {
 
   const onEnter = () => {
     console.log(formData.message, formData.senderName);
-    axios.post('/api/mail/', formData);
+    axios.post("/api/mail/", formData);
   };
   return (
     <div>
       <Header />
-      <FirstSection title='Contact' text='SAY HELLO' sectionImg={sectionImg} />
-      <div className='contactus jagged-border'>
-        <SectionTitle title='Say Hello' textColor='black' />
-        <div className='SmallBlack contacth2'>Say Hello, Send us a Message</div>
-        <div className='XSmallBlack contactText'>
-          Viverra vitae congue eu consequat ac felis donec et. Placerat in egestas erat imperdiet.
-          Cras ornare arcu dui vivamus arcu. At auctor urna nunc id cursus metus. Aliquet eget sit
-          amet tellus cras adipiscing enim. Et leo duis ut diam quam. Tempor orci eu lobortis
-          elementum nibh tellus molestie. Lectus nulla at volutpat diam ut venenatis tellus in
-          metus. Consequat id porta nibh venenatis cras sed felis eget velit. Donec adipiscing
-          tristique risus nec. Sit amet consectetur adipiscing elit duis tristique sollicitudin
-          nibh. Viverra nibh cras pulvinar mattis nunc sed.
+      <FirstSection title="Contact" text="SAY HELLO" sectionImg={sectionImg} />
+      <div className="contactus jagged-border">
+        <SectionTitle title="Say Hello" textColor="black" />
+        <div className="SmallBlack contacth2">
+          Get in Touch with Stefano’s Family Pizzeria!
         </div>
-        <div className='contactForm'>
-          <div className='nameEmailFlex'>
+        <div className="XSmallBlack contactText">
+          We’d love to hear from you! Whether you have a question, a comment, or
+          just want to share your love for our pizza, we’re here to help. We
+          value your feedback and are always looking to improve your experience.
+          Feel free to fill out our online feedback form to let us know how
+          we’re doing. Here's how to contact us: Phone (555) 123-4567, Email
+          contact@stefanospizzeria.com. Thank you for choosing Stefano’s Family
+          Pizzeria. We look forward to serving you soon!
+        </div>
+        <div className="contactForm">
+          <div className="nameEmailFlex">
             <input
-              className='nameInput XSmallBlack'
-              name='senderName'
+              className="nameInput XSmallBlack"
+              name="senderName"
               onChange={(e) => onChange(e)}
-              placeholder='Name'
-              autoComplete='off'
+              placeholder="Name"
+              autoComplete="off"
             />
             <input
-              className='emailInput XSmallBlack'
-              name='email'
+              className="emailInput XSmallBlack"
+              name="email"
               onChange={(e) => onChange(e)}
-              placeholder='E-mail'
-              autoComplete='off'
+              placeholder="E-mail"
+              autoComplete="off"
             />
           </div>
           <input
-            className='subject XSmallBlack'
-            name='subject'
+            className="subject XSmallBlack"
+            name="subject"
             onChange={(e) => onChange(e)}
-            placeholder='Subject'
-            autoComplete='off'
+            placeholder="Subject"
+            autoComplete="off"
           />
           <textarea
-            className='message XSmallBlack'
-            name='message'
+            className="message XSmallBlack"
+            name="message"
             onChange={(e) => onChange(e)}
-            placeholder='Message'
-            autoComplete='off'
+            placeholder="Message"
+            autoComplete="off"
           />
           <div onClick={() => onEnter()}>
-            <ItalianButton text='SEND MESSAGE' />
+            <ItalianButton text="SEND MESSAGE" />
           </div>
         </div>
       </div>

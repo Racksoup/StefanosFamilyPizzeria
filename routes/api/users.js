@@ -1,18 +1,21 @@
-const User = require('../../models/User');
-const auth = require('../../middleware/auth');
+const User = require("../../models/User");
+const auth = require("../../middleware/auth");
 
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const { check, validationResult } = require('express-validator');
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const { check, validationResult } = require("express-validator");
 
 // @route   Post api/users
 // @desc    Make Admin. Activate to create new Admin
 // @access  Public
-// router.post('/', [
-//   check('username', 'Username is required').not().isEmpty(),
-//   check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 }),
+// router.post("/", [
+//   check("username", "Username is required").not().isEmpty(),
+//   check(
+//     "password",
+//     "Please enter a password with 6 or more characters"
+//   ).isLength({ min: 3 }),
 //   async (req, res) => {
 //     const errors = validationResult(req);
 //     if (!errors.isEmpty()) {
@@ -24,7 +27,9 @@ const { check, validationResult } = require('express-validator');
 //       let user = await User.findOne({ username });
 
 //       if (user) {
-//         return res.status(400).json({ errors: [{ msg: 'User already exists' }] });
+//         return res
+//           .status(400)
+//           .json({ errors: [{ msg: "User already exists" }] });
 //       }
 
 //       user = new User({
@@ -45,13 +50,18 @@ const { check, validationResult } = require('express-validator');
 //         },
 //       };
 
-//       jwt.sign(payload, process.env.JWTSECRET, { expiresIn: '1h' }, (err, token) => {
-//         if (err) throw err;
-//         res.json({ token });
-//       });
+//       jwt.sign(
+//         payload,
+//         process.env.JWTSECRET,
+//         { expiresIn: "1h" },
+//         (err, token) => {
+//           if (err) throw err;
+//           res.json({ token });
+//         }
+//       );
 //     } catch (err) {
 //       console.error(err.message);
-//       res.status(500).send('Server error');
+//       res.status(500).send("Server error");
 //     }
 //   },
 // ]);
@@ -59,8 +69,11 @@ const { check, validationResult } = require('express-validator');
 // @route   PUT api/users
 // @desc    Change Admin Password
 // @access  Private
-router.put('/', auth, [
-  check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 }),
+router.put("/", auth, [
+  check(
+    "password",
+    "Please enter a password with 6 or more characters"
+  ).isLength({ min: 6 }),
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -74,7 +87,7 @@ router.put('/', auth, [
 
     postItem.password = await bcrypt.hash(password, salt);
     try {
-      let user = await User.findOneAndUpdate({ username: 'Admin' }, postItem);
+      let user = await User.findOneAndUpdate({ username: "Admin" }, postItem);
 
       await user.save();
 
@@ -84,13 +97,18 @@ router.put('/', auth, [
         },
       };
 
-      jwt.sign(payload, process.env.JWTSECRET, { expiresIn: '1h' }, (err, token) => {
-        if (err) throw err;
-        res.json({ token });
-      });
+      jwt.sign(
+        payload,
+        process.env.JWTSECRET,
+        { expiresIn: "1h" },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
     } catch (err) {
       console.error(err.message);
-      res.status(500).send('Server Error');
+      res.status(500).send("Server Error");
     }
   },
 ]);

@@ -1,4 +1,4 @@
-@import './App.scss';
+@import "./App.scss";
 
 .updateMenuItemModalBG {
   z-index: 2;
@@ -43,6 +43,17 @@
   padding: 0px 0px 0px 20px;
   background-color: $inputBGColor;
   border: none;
+  resize: none;
+}
+
+.updateMenuItemTextArea {
+  width: 300px;
+  max-height: 15rem;
+  border-radius: 6px;
+  padding: 0px 0px 0px 20px;
+  background-color: $inputBGColor;
+  border: none;
+  resize: none;
 }
 
 .updateMenuItemModalInputLabel {
